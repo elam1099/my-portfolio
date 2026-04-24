@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Outcomes Cards Preview — Emily Lam</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream: #FBF7F4;
+      --text-dark: #2A2020;
+      --text-mid: #6B5555;
+      --text-light: #A89090;
+      --star-rose: #C4607E;
+      --star-periwinkle: #7B86C8;
+      --star-peach: #D4875A;
+      --star-sky: #5B9FCC;
+    }
+
+    @keyframes twinkle-solid {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(0.7); opacity: 0.6; }
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      padding: 3rem 2rem 6rem;
+      background-image:
+        radial-gradient(ellipse 60% 50% at 20% 30%, rgba(242,182,200,0.22) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 60% at 80% 70%, rgba(194,201,245,0.18) 0%, transparent 70%);
+    }
+
+    .page-title {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 1.4rem;
+      margin-bottom: 0.35rem;
+    }
+    .page-sub { font-size: 0.875rem; color: var(--text-light); margin-bottom: 0.5rem; }
+    .page-context {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--text-mid);
+      margin-bottom: 3rem;
+      max-width: 620px;
+    }
+
+    .option-block { margin-bottom: 4rem; }
+    .option-label {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 0.4rem;
+    }
+    .option-name {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 1.5rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      max-width: 780px;
+    }
+
+    /* ─────────────────────────────────────────
+       OPTION A — Same as goals cards (gradient border, white fill)
+    ───────────────────────────────────────── */
+    .opt-a-wrap {
+      position: relative;
+      border-radius: 20px;
+      padding: 1px;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.4s cubic-bezier(0.16,1,0.3,1), transform 0.4s cubic-bezier(0.16,1,0.3,1);
+    }
+    .opt-a-wrap:hover { box-shadow: 0 12px 36px rgba(42,32,32,0.1); transform: translateY(-5px); }
+    .opt-a-wrap::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 20px;
+      padding: 1px;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+    .opt-a-rose-periwinkle::before { background: linear-gradient(135deg, rgba(196,96,126,0.55), rgba(123,134,200,0.5)); }
+    .opt-a-periwinkle-sky::before  { background: linear-gradient(135deg, rgba(123,134,200,0.5), rgba(91,159,204,0.5)); }
+    .opt-a-inner {
+      background: #fff;
+      border-radius: 19px;
+      padding: 2rem 1.75rem 1.75rem;
+      position: relative;
+      z-index: 0;
+      flex: 1;
+    }
+    .opt-a-inner h4 {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: var(--text-dark);
+    }
+    .opt-a-inner p { font-size: 0.9rem; line-height: 1.7; color: var(--text-mid); }
+    .sparkle-tl {
+      position: absolute; top: -14px; left: 1.25rem;
+      width: 28px; height: 28px; pointer-events: none;
+      animation: twinkle-solid 6s ease-in-out infinite; z-index: 2;
+    }
+    .sparkle-br {
+      position: absolute; bottom: -10px; right: 1.25rem;
+      width: 20px; height: 20px; pointer-events: none;
+      animation: twinkle-solid 7.5s ease-in-out infinite;
+      animation-delay: 2s; z-index: 2;
+    }
+
+    /* ─────────────────────────────────────────
+       OPTION B — Soft pastel fill (gradient background, no border)
+    ───────────────────────────────────────── */
+    .opt-b-card {
+      border-radius: 20px;
+      padding: 2rem 1.75rem 1.75rem;
+      position: relative;
+      transition: box-shadow 0.4s cubic-bezier(0.16,1,0.3,1), transform 0.4s cubic-bezier(0.16,1,0.3,1);
+      overflow: hidden;
+    }
+    .opt-b-card:hover { box-shadow: 0 12px 36px rgba(42,32,32,0.1); transform: translateY(-5px); }
+    .opt-b-rose {
+      background: linear-gradient(145deg, rgba(242,182,200,0.35) 0%, rgba(248,208,186,0.25) 100%);
+      border: 1px solid rgba(196,96,126,0.15);
+    }
+    .opt-b-periwinkle {
+      background: linear-gradient(145deg, rgba(194,201,245,0.35) 0%, rgba(184,222,255,0.25) 100%);
+      border: 1px solid rgba(123,134,200,0.15);
+    }
+    .opt-b-card h4 {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: var(--text-dark);
+    }
+    .opt-b-card p { font-size: 0.9rem; line-height: 1.7; color: var(--text-mid); }
+    /* Decorative blob in corner */
+    .opt-b-card::after {
+      content: '';
+      position: absolute;
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      opacity: 0.25;
+      bottom: -30px; right: -30px;
+      pointer-events: none;
+    }
+    .opt-b-rose::after { background: radial-gradient(circle, #C4607E, transparent 70%); }
+    .opt-b-periwinkle::after { background: radial-gradient(circle, #7B86C8, transparent 70%); }
+    .opt-b-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      margin-bottom: 0.9rem;
+    }
+    .opt-b-rose .opt-b-tag { background: rgba(196,96,126,0.12); color: #C4607E; }
+    .opt-b-periwinkle .opt-b-tag { background: rgba(123,134,200,0.15); color: #7B86C8; }
+
+    /* ─────────────────────────────────────────
+       OPTION C — Left accent bar with icon
+    ───────────────────────────────────────── */
+    .opt-c-card {
+      border-radius: 16px;
+      padding: 1.75rem 1.75rem 1.75rem 1.75rem;
+      background: #fff;
+      border: 1px solid rgba(42,32,32,0.07);
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+      overflow: hidden;
+      transition: box-shadow 0.4s cubic-bezier(0.16,1,0.3,1), transform 0.4s cubic-bezier(0.16,1,0.3,1);
+    }
+    .opt-c-card:hover { box-shadow: 0 12px 36px rgba(42,32,32,0.09); transform: translateY(-5px); }
+    /* Top accent bar */
+    .opt-c-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      border-radius: 16px 16px 0 0;
+    }
+    .opt-c-rose::before { background: linear-gradient(90deg, #C4607E, #D4875A); }
+    .opt-c-periwinkle::before { background: linear-gradient(90deg, #7B86C8, #5B9FCC); }
+    .opt-c-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1rem;
+      flex-shrink: 0;
+    }
+    .opt-c-rose .opt-c-icon { background: rgba(196,96,126,0.1); color: #C4607E; }
+    .opt-c-periwinkle .opt-c-icon { background: rgba(123,134,200,0.12); color: #7B86C8; }
+    .opt-c-card h4 {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.65rem;
+      color: var(--text-dark);
+    }
+    .opt-c-card p { font-size: 0.9rem; line-height: 1.7; color: var(--text-mid); }
+
+    /* ─────────────────────────────────────────
+       OPTION D — Stat-forward: big number/word + supporting text
+    ───────────────────────────────────────── */
+    .opt-d-wrap {
+      position: relative;
+      border-radius: 20px;
+      padding: 1px;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.4s cubic-bezier(0.16,1,0.3,1), transform 0.4s cubic-bezier(0.16,1,0.3,1);
+    }
+    .opt-d-wrap:hover { box-shadow: 0 12px 36px rgba(42,32,32,0.1); transform: translateY(-5px); }
+    .opt-d-wrap::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 20px;
+      padding: 1px;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+    .opt-d-peach-rose::before { background: linear-gradient(135deg, rgba(212,135,90,0.5), rgba(196,96,126,0.5)); }
+    .opt-d-sky-periwinkle::before { background: linear-gradient(135deg, rgba(91,159,204,0.5), rgba(123,134,200,0.5)); }
+    .opt-d-inner {
+      background: #fff;
+      border-radius: 19px;
+      padding: 2rem 1.75rem 1.75rem;
+      position: relative;
+      z-index: 0;
+      flex: 1;
+    }
+    .opt-d-kicker {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 0.6rem;
+    }
+    .opt-d-headline {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 0.85rem;
+      letter-spacing: -0.02em;
+    }
+    .opt-d-peach-rose .opt-d-headline { color: #C4607E; }
+    .opt-d-sky-periwinkle .opt-d-headline { color: #7B86C8; }
+    .opt-d-inner p { font-size: 0.9rem; line-height: 1.7; color: var(--text-mid); }
+    .opt-d-tbd {
+      font-size: 0.75rem;
+      color: var(--text-light);
+      margin-top: 0.5rem;
+      font-style: italic;
+    }
+
+    hr.divider {
+      border: none;
+      border-top: 1px solid rgba(42,32,32,0.09);
+      margin: 3.5rem 0;
+      max-width: 780px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 class="page-title">Section 09 — Outcomes card options</h1>
+  <p class="page-sub">Four treatments for the Qualitative / Quantitative impact cards.</p>
+  <p class="page-context">The two cards summarize the project's impact: one qualitative (scalable User Settings foundation), one quantitative (enrollment metrics TBD post-launch). Keep that asymmetry in mind — option D leans into it.</p>
+
+  <!-- ── OPTION A ── -->
+  <div class="option-block">
+    <p class="option-label">Option A</p>
+    <p class="option-name">Consistent — same gradient border treatment as sections 3 &amp; 8</p>
+    <div class="grid" style="padding-top:18px; padding-bottom:14px;">
+
+      <div class="opt-a-wrap opt-a-rose-periwinkle">
+        <svg class="sparkle-tl" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#C4607E"/>
+        </svg>
+        <div class="opt-a-inner">
+          <h4>Qualitative Impact</h4>
+          <p>Beyond the numbers, this project established something larger: a dedicated and scalable User Settings tab, where we can add future account related settings. MFA is the first feature to live there, but the foundation is in place for future capabilities to follow.</p>
+        </div>
+        <svg class="sparkle-br" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#7B86C8"/>
+        </svg>
+      </div>
+
+      <div class="opt-a-wrap opt-a-periwinkle-sky">
+        <svg class="sparkle-tl" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="animation-delay:1.5s;">
+          <path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#7B86C8"/>
+        </svg>
+        <div class="opt-a-inner">
+          <h4>Quantitative Impact</h4>
+          <p>Metrics are to be added — including MFA enrollment success rates post-launch.</p>
+        </div>
+        <svg class="sparkle-br" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="animation-delay:3s;">
+          <path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#5B9FCC"/>
+        </svg>
+      </div>
+
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- ── OPTION B ── -->
+  <div class="option-block">
+    <p class="option-label">Option B</p>
+    <p class="option-name">Soft pastel fill — tinted gradient background per card, pill label</p>
+    <div class="grid">
+
+      <div class="opt-b-card opt-b-rose">
+        <span class="opt-b-tag">Qualitative</span>
+        <h4>Impact</h4>
+        <p>Beyond the numbers, this project established something larger: a dedicated and scalable User Settings tab, where we can add future account related settings. MFA is the first feature to live there, but the foundation is in place for future capabilities to follow.</p>
+      </div>
+
+      <div class="opt-b-card opt-b-periwinkle">
+        <span class="opt-b-tag">Quantitative</span>
+        <h4>Impact</h4>
+        <p>Metrics are to be added — including MFA enrollment success rates post-launch.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- ── OPTION C ── -->
+  <div class="option-block">
+    <p class="option-label">Option C</p>
+    <p class="option-name">Icon + accent bar — white card with colored top bar and category icon</p>
+    <div class="grid">
+
+      <div class="opt-c-card opt-c-rose">
+        <div class="opt-c-icon">
+          <!-- people / community icon -->
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <h4>Qualitative Impact</h4>
+        <p>Beyond the numbers, this project established something larger: a dedicated and scalable User Settings tab, where we can add future account related settings. MFA is the first feature to live there, but the foundation is in place for future capabilities to follow.</p>
+      </div>
+
+      <div class="opt-c-card opt-c-periwinkle">
+        <div class="opt-c-icon">
+          <!-- chart / metrics icon -->
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="20" x2="18" y2="10"/>
+            <line x1="12" y1="20" x2="12" y2="4"/>
+            <line x1="6" y1="20" x2="6" y2="14"/>
+            <line x1="2" y1="20" x2="22" y2="20"/>
+          </svg>
+        </div>
+        <h4>Quantitative Impact</h4>
+        <p>Metrics are to be added — including MFA enrollment success rates post-launch.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- ── OPTION D ── -->
+  <div class="option-block">
+    <p class="option-label">Option D</p>
+    <p class="option-name">Stat-forward — big display word anchors each card, supporting text below</p>
+    <div class="grid" style="padding-top:18px; padding-bottom:14px;">
+
+      <div class="opt-d-wrap opt-d-peach-rose">
+        <svg class="sparkle-tl" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="animation-delay:0.5s;">
+          <path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#D4875A"/>
+        </svg>
+        <div class="opt-d-inner">
+          <p class="opt-d-kicker">Qualitative Impact</p>
+          <p class="opt-d-headline">Foundation<br>for scale</p>
+          <p>A dedicated User Settings tab — designed from the start to support MFA and everything that comes after it.</p>
+        </div>
+        <svg class="sparkle-br" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="animation-delay:2s;">
+          <path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#C4607E"/>
+        </svg>
+      </div>
+
+      <div class="opt-d-wrap opt-d-sky-periwinkle">
+        <svg class="sparkle-tl" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="animation-delay:2s;">
+          <path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#5B9FCC"/>
+        </svg>
+        <div class="opt-d-inner">
+          <p class="opt-d-kicker">Quantitative Impact</p>
+          <p class="opt-d-headline">TBD<br>post-launch</p>
+          <p>Enrollment success rates and support ticket reduction to be tracked after launch.</p>
+          <p class="opt-d-tbd">Metrics will be updated once the feature ships.</p>
+        </div>
+        <svg class="sparkle-br" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="animation-delay:3.5s;">
+          <path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#7B86C8"/>
+        </svg>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

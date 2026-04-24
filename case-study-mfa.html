@@ -129,7 +129,7 @@
           <div class="cs-two-col" style="padding-top: 18px; padding-bottom: 14px;">
 
             <!-- Card 1: rose TL, periwinkle BR -->
-            <div class="goal-wrap">
+            <div class="goal-wrap goal-grad-rose-periwinkle">
               <svg class="goal-sparkle-tl" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#C4607E"/>
               </svg>
@@ -143,7 +143,7 @@
             </div>
 
             <!-- Card 2: periwinkle TL, sky BR -->
-            <div class="goal-wrap">
+            <div class="goal-wrap goal-grad-periwinkle-sky">
               <svg class="goal-sparkle-tl" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="animation-delay:1s;">
                 <path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#7B86C8"/>
               </svg>
@@ -157,7 +157,7 @@
             </div>
 
             <!-- Card 3: peach TL, rose BR -->
-            <div class="goal-wrap">
+            <div class="goal-wrap goal-grad-peach-rose">
               <svg class="goal-sparkle-tl" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="animation-delay:2s;">
                 <path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#D4875A"/>
               </svg>
@@ -171,7 +171,7 @@
             </div>
 
             <!-- Card 4: sky TL, peach BR -->
-            <div class="goal-wrap">
+            <div class="goal-wrap goal-grad-sky-peach">
               <svg class="goal-sparkle-tl" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="animation-delay:3s;">
                 <path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#5B9FCC"/>
               </svg>
@@ -199,7 +199,7 @@
             My research focused on two things: understanding what users already expected from MFA based on their experience with other tools, and identifying where standard MFA flows tend to cause frustration.
           </p>
           <p>
-            I conducted a competitive analysis of MFA enrollment experiences across two platforms, Microsoft Authenticator and GitHub. I chose Microsoft Authenticator as it’s a popular authenticator app among consumers, and because it represented an example of a guided, step-by-step enrollment flow. GitHub, on the other hand, was an example that was brought in later by product marketing and engineering as a reference to have all the steps be surfaced at a glance, allowing for a more streamlined approach.
+            I conducted a competitive analysis of MFA enrollment experiences across two platforms, Microsoft Authenticator and GitHub. I chose Microsoft Authenticator as it's a popular authenticator app among consumers, and because it represented an example of a guided, step-by-step enrollment flow. GitHub, on the other hand, was an example that was brought in later by product marketing and engineering as a reference to have all the steps be surfaced at a glance, allowing for a more streamlined approach.
           </p>
           <div class="cs-img-placeholder" role="img" aria-label="Competitive analysis placeholder">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
@@ -229,19 +229,15 @@
             After reviewing requirements from the product team and synthesizing research findings, I mapped out the end-to-end user journey for MFA enrollment. This helped me organize all the necessary steps needed in order to create a successful user experience.
           </p>
           <p>
-            Initially, we had the users select their authentication method first, and then reverified their identity. After consulting with the engineering team, we realized that this wasn’t the correct flow.
+            Initially, we had the users select their authentication method first, and then reverified their identity. After consulting with the engineering team, we realized that this wasn't the correct flow.
           </p>
           <p>
-            Thus, I moved the reverification step to the very beginning so the user isn’t interrupted in the middle of the set up flow by being asked to confirm their identity. Once they reverify their identity in the very beginning, they will have full access to manage their MFA setup (and their devices) within that session window without any interruptions, providing a more seamless and improved user experience.
+            Thus, I moved the reverification step to the very beginning so the user isn't interrupted in the middle of the set up flow by being asked to confirm their identity. Once they reverify their identity in the very beginning, they will have full access to manage their MFA setup (and their devices) within that session window without any interruptions, providing a more seamless and improved user experience.
           </p>
-          <div class="cs-img-placeholder" role="img" aria-label="Original vs. restructured user flow placeholder">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-              <rect x="3" y="3" width="18" height="18" rx="3"/>
-              <circle cx="8.5" cy="8.5" r="1.5"/>
-              <polyline points="21 15 16 10 5 21"/>
-            </svg>
-            Original vs. restructured user flow
-          </div>
+          <figure class="cs-img-wrap" role="button" tabindex="0" aria-label="View image: Original vs. restructured user flow">
+            <img src="case-studies/mfa-userflow.png" alt="Original vs. restructured user flow" class="cs-img" />
+          </figure>
+          <p class="cs-img-caption"><em>Click to view!</em></p>
         </div>
       </div>
     </div>
@@ -291,7 +287,7 @@
               <span class="cs-badge cs-badge-periwinkle">2</span>
               <div class="content">
                 <strong>At-a-glance, single-screen flow</strong>
-                <p>To implement a similar MFA flow to that of GitHub’s, shared by product marketing and engineering as a reference. This evidently challenged whether the step-by-step structure was adding clarity or just adding additional steps.</p>
+                <p>To implement a similar MFA flow to that of GitHub's, shared by product marketing and engineering as a reference. This evidently challenged whether the step-by-step structure was adding clarity or just adding additional steps.</p>
               </div>
             </li>
           </ol>
@@ -333,33 +329,33 @@
             </svg>
             Final designs — security settings page
           </div>
-          <div class=”cs-two-col” style=”padding-top: 18px; padding-bottom: 14px;”>
+          <div class="cs-two-col" style="padding-top: 18px; padding-bottom: 14px;">
 
             <!-- Card 1: rose TL, periwinkle BR -->
-            <div class=”goal-wrap”>
-              <svg class=”goal-sparkle-tl” viewBox=”0 0 24 24” fill=”none” aria-hidden=”true”>
-                <path d=”M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z” fill=”#C4607E”/>
+            <div class="goal-wrap goal-grad-rose-periwinkle">
+              <svg class="goal-sparkle-tl" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#C4607E"/>
               </svg>
-              <div class=”goal-inner-card”>
+              <div class="goal-inner-card">
                 <h4>Authenticator App flow</h4>
-                <p>Clicking “Add” on the Authenticator App card expands the setup inline, presenting the QR code and manual setup code together on the same page. Users who can't scan the QR code can copy the setup key directly into their authenticator app. Below, individual digit input fields guide users through entering their verification code before hitting “verify.”</p>
+                <p>Clicking "Add" on the Authenticator App card expands the setup inline, presenting the QR code and manual setup code together on the same page. Users who can't scan the QR code can copy the setup key directly into their authenticator app. Below, individual digit input fields guide users through entering their verification code before hitting "verify."</p>
               </div>
-              <svg class=”goal-sparkle-br” viewBox=”0 0 24 24” fill=”none” aria-hidden=”true” style=”animation-delay:1.5s;”>
-                <path d=”M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z” fill=”#7B86C8”/>
+              <svg class="goal-sparkle-br" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="animation-delay:1.5s;">
+                <path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#7B86C8"/>
               </svg>
             </div>
 
             <!-- Card 2: periwinkle TL, sky BR -->
-            <div class=”goal-wrap”>
-              <svg class=”goal-sparkle-tl” viewBox=”0 0 24 24” fill=”none” aria-hidden=”true” style=”animation-delay:1s;”>
-                <path d=”M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z” fill=”#7B86C8”/>
+            <div class="goal-wrap goal-grad-periwinkle-sky">
+              <svg class="goal-sparkle-tl" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="animation-delay:1s;">
+                <path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#7B86C8"/>
               </svg>
-              <div class=”goal-inner-card”>
+              <div class="goal-inner-card">
                 <h4>SMS flow</h4>
-                <p>Clicking “Add” on the SMS card also expands it inline on the same page, while keeping the Authenticator App card visible above, so the method hierarchy is never lost. Users enter their phone number, send a verification code, and enter it. A “Didn't receive the code?” prompt with a request link is surfaced directly below the input, anticipating the most common pain point for users before they have a chance to get stuck.</p>
+                <p>Clicking "Add" on the SMS card also expands it inline on the same page, while keeping the Authenticator App card visible above, so the method hierarchy is never lost. Users enter their phone number, send a verification code, and enter it. A "Didn't receive the code?" prompt with a request link is surfaced directly below the input, anticipating the most common pain point for users before they have a chance to get stuck.</p>
               </div>
-              <svg class=”goal-sparkle-br” viewBox=”0 0 24 24” fill=”none” aria-hidden=”true” style=”animation-delay:2.5s;”>
-                <path d=”M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z” fill=”#5B9FCC”/>
+              <svg class="goal-sparkle-br" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="animation-delay:2.5s;">
+                <path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#5B9FCC"/>
               </svg>
             </div>
 
@@ -385,14 +381,12 @@
           <h3>So what changed?</h3>
           <p> This project delivered the first iteration of MFA enrollment for our platform, which was a capability that did not exist prior. While the product hasn't launched publicly yet, the design lays the groundwork for measurable impact on both user security and product scalability.          </p>
           <div class="cs-two-col">
-            <div class="cs-card">
-              <h4>Qualitative Impact</h4>
-              <p>Beyond the numbers, this project established something larger: a dedicated and scalable User Settings tab, where we can add future account related settings. MFA is the first feature to live there, but the foundation is in place for future capabilities to follow.</p>
-            </div>
-            <div class="cs-card">
-              <h4>Quantitative Impact</h4>
-              <p>Metrics are to be added — including MFA enrollment success rates post-launch. </p>
-            </div>
+            <ul class="cs-list">
+              <li><span><strong>Qualitative Impact</strong>Beyond the numbers, this project established something larger: a dedicated and scalable User Settings tab, where we can add future account related settings. </span></li>
+            </ul>
+            <ul class="cs-list">
+              <li><span><strong>Quantitative Impact</strong>Metrics are to be added — including MFA enrollment success rates post-launch.</span></li>
+            </ul>
           </div>
         </div>
       </div>
@@ -404,8 +398,14 @@
         <p class="cs-section-label">10 — Reflections</p>
         <div class="cs-section-content">
           <h3>What I learned</h3>
-          <p class="cs-placeholder">
-            Reflect on the project. What design decisions are you most proud of? What did you learn about designing for trust, clarity, and security simultaneously? What would you explore in a v2?
+          <p>
+            Although the project didn’t start off with the idea of creating a new dedicated User Settings tab, it definitely became something that I am excited to expand upon. Unknowingly, this project became a foundational decision that will quietly shape the product for a long time.
+          </p>
+          <p>
+            As I've continued working with our IAM (Identity Access Management) team on other projects, it further reinforces the potential the User Settings tab holds. The MFA page has set a foundation for a centralized hub where users can manage their identity, security, and account preferences in one place, rather than having to search through the entire application to find where they want to be.
+          </p>
+          <p>
+            If there are additions to be made post MVP, the most natural next step would be expanding the MFA methods available, specifically adding email verification as a third option alongside the authenticator app and SMS. Email is a familiar, low-barrier method for users who may not have an authenticator app or a mobile number readily available, and it would make the enrollment experience more inclusive without complicating the existing flow.
           </p>
         </div>
       </div>
@@ -419,6 +419,43 @@
     <a href="index.html" class="btn btn-outline">Back to all work</a>
   </div>
 
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="lightbox-close" aria-label="Close">&times;</button>
+    <div class="lightbox-backdrop"></div>
+    <div class="lightbox-content">
+      <img class="lightbox-img" src="" alt="" />
+      <p class="lightbox-caption"></p>
+    </div>
+  </div>
+
   <script src="js/main.js"></script>
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('.lightbox-img');
+    const lightboxCaption = lightbox.querySelector('.lightbox-caption');
+
+    function openLightbox(src, alt, caption) {
+      lightboxImg.src = src;
+      lightboxImg.alt = alt;
+      lightboxCaption.textContent = caption || '';
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.cs-img-wrap').forEach(wrap => {
+      const img = wrap.querySelector('img');
+      wrap.addEventListener('click', () => openLightbox(img.src, img.alt, img.alt));
+      wrap.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') openLightbox(img.src, img.alt, img.alt); });
+    });
+
+    lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+    lightbox.querySelector('.lightbox-backdrop').addEventListener('click', closeLightbox);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+  </script>
 </body>
 </html>
