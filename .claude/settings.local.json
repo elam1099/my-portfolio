@@ -24,7 +24,9 @@
       "Bash(sed -i '' 's|© 2026 Emily Lam. Designed &amp; built with care.|© 2026 Emily Lam. Fueled by sourdough.|g' /Users/emilylam/Desktop/my-portfolio/index.html /Users/emilylam/Desktop/my-portfolio/about.html /Users/emilylam/Desktop/my-portfolio/after-hours.html)",
       "Bash(python3 -c ':*)",
       "WebFetch(domain:docs.google.com)",
-      "WebFetch(domain:doc-04-c8-docstext.googleusercontent.com)"
+      "WebFetch(domain:doc-04-c8-docstext.googleusercontent.com)",
+      "WebFetch(domain:brandonleedesigns.com)",
+      "mcp__Claude_in_Chrome__tabs_context_mcp"
     ]
   }
 }
