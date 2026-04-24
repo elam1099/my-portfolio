@@ -234,7 +234,7 @@
           <p>
             Thus, I moved the reverification step to the very beginning so the user isn't interrupted in the middle of the set up flow by being asked to confirm their identity. Once they reverify their identity in the very beginning, they will have full access to manage their MFA setup (and their devices) within that session window without any interruptions, providing a more seamless and improved user experience.
           </p>
-          <figure class="cs-img-wrap" role="button" tabindex="0" aria-label="View image: Original vs. restructured user flow">
+          <figure class="cs-img-wrap" role="button" tabindex="0" aria-label="View image: Original vs. restructured user flow" data-caption="MFA user flow">
             <img src="case-studies/mfa-userflow.png" alt="Original vs. restructured user flow" class="cs-img" />
           </figure>
           <p class="cs-img-caption"><em>Click to view!</em></p>
@@ -249,14 +249,10 @@
         <div class="cs-section-content">
           <h3>Exploring possibilities</h3>
           <p> One of the earliest decisions was where to house the MFA settings. Initially, I designed it to be within the existing application UI through a drawer design.          </p>
-          <div class="cs-img-placeholder" role="img" aria-label="Early concept explorations placeholder">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-              <rect x="3" y="3" width="18" height="18" rx="3"/>
-              <circle cx="8.5" cy="8.5" r="1.5"/>
-              <polyline points="21 15 16 10 5 21"/>
-            </svg>
-            Early explorations — drawer vs. dedicated settings page
-          </div>
+          <figure class="cs-img-wrap" role="button" tabindex="0" aria-label="View image: Early explorations — drawer vs. dedicated settings page" data-caption="Early explorations — drawer vs. dedicated settings page">
+            <img src="case-studies/mfa-drawer.png" alt="Early explorations — drawer vs. dedicated settings page" class="cs-img" />
+          </figure>
+          <p class="cs-img-caption"><em>Click to view!</em></p>
             <p>
               Given that users unfamiliar with authenticator apps would need clearer guidance, I decided to break the flow up into steps, which reduced cognitive load and made error recovery easier.
             </p>
@@ -449,8 +445,9 @@
 
     document.querySelectorAll('.cs-img-wrap').forEach(wrap => {
       const img = wrap.querySelector('img');
-      wrap.addEventListener('click', () => openLightbox(img.src, img.alt, img.alt));
-      wrap.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') openLightbox(img.src, img.alt, img.alt); });
+      const caption = wrap.dataset.caption || img.alt;
+      wrap.addEventListener('click', () => openLightbox(img.src, img.alt, caption));
+      wrap.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') openLightbox(img.src, img.alt, caption); });
     });
 
     lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
