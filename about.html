@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Emily Lam</title>
+  <meta name="description" content="About Emily Lam — UX designer at Badger Meter, lover of sourdough and snowboarding." />
+  <link rel="stylesheet" href="css/styles.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="icon" type="image/svg+xml" href="images/em-logo.svg" />
+</head>
+<body>
+
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <!-- ═══════ NAV ═══════ -->
+  <nav role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="nav-logo" aria-label="Emily Lam — home"><span class="nav-logo-shimmer"><img src="images/em-logo.svg" alt="Emily Lam" class="nav-logo-img" /></span></a>
+    <ul class="nav-links">
+      <li class="mobile-menu-logo"><a href="index.html" class="nav-logo" aria-label="Emily Lam — home"><span class="nav-logo-shimmer"><img src="images/em-logo.svg" alt="Emily Lam" class="nav-logo-img" /></span></a></li>
+      <li><a href="index.html#work">Work</a></li>
+      <li><a href="about.html" aria-current="page">About</a></li>
+      <li><a href="after-hours.html">After Hours</a></li>
+    </ul>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <svg class="toggle-icon-open" width="22" height="14" viewBox="0 0 22 14" fill="none" aria-hidden="true">
+        <line x1="0" y1="1" x2="22" y2="1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="0" y1="7" x2="22" y2="7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="0" y1="13" x2="22" y2="13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <svg class="toggle-icon-close" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+        <line x1="4" y1="4" x2="20" y2="20"/>
+        <line x1="20" y1="4" x2="4" y2="20"/>
+      </svg>
+    </button>
+  </nav>
+
+  <!-- ═══════ ABOUT HERO ═══════ -->
+  <section class="about-hero" aria-label="About intro">
+    <!-- Gradient background — hero only -->
+    <div class="bg-canvas" aria-hidden="true"></div>
+
+    <!-- Decorative sparkles -->
+    <div aria-hidden="true" class="hero-sparkles">
+      <svg class="sparkle-deco" style="top:14%; right:9%; width:48px; height:48px;" viewBox="0 0 24 24" fill="none">
+        <path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#C4607E"/>
+      </svg>
+      <svg class="sparkle-deco" style="top:55%; left:4%; width:24px; height:24px;" viewBox="0 0 24 24" fill="none">
+        <path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#7B86C8"/>
+      </svg>
+      <svg class="sparkle-deco" style="bottom:18%; right:22%; width:14px; height:14px;" viewBox="0 0 24 24" fill="none">
+        <path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#D4875A"/>
+      </svg>
+    </div>
+
+    <div class="container about-hero-inner">
+      <div class="reveal">
+        <p class="hero-label">Nice to meet you!</p>
+        <h1 class="about-hero-name">I'm Emily Lam</h1>
+        <p class="about-hero-sub">UX Designer · Based in the SF Bay Area · UC Davis Alum</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ PHOTO + BIO ═══════ -->
+  <section class="about-intro" aria-label="Bio">
+    <div class="container">
+      <div class="about-intro-grid reveal">
+
+        <!-- Photo -->
+        <div class="about-photo-col">
+          <div class="photo-frame">
+            <img src="images/me.JPG" alt="Emily Lam" />
+          </div>
+          <!-- Decorative sparkle near photo -->
+          <svg class="photo-sparkle" aria-hidden="true" viewBox="0 0 24 24" fill="none">
+            <path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#F2B6C8"/>
+          </svg>
+        </div>
+
+        <!-- Bio -->
+        <div class="about-bio-col">
+          <p class="about-label">About me</p>
+          <h2 class="about-bio-heading">I craft digital products that feel intuitive and human.</h2>
+          <div class="about-bio-text">
+            <p>Hi, I'm Emily! I currently work at Badger Meter, designing for our desktop application, BEACON, and our mobile application, EyeOnWater, where I partner closely with product and engineering teams to make sure every detail holds up from concept to launch. Collaboration is one of my favorite parts of this work — I really believe the best solutions come from being in the room with your team, asking the right questions, and building things together.</p>
+            <p>My design background was initially primarily in print design. I started off in high school in the yearbook committee, which led to me spending some time at UC Davis in a student run magazine, Inprint. I eventually became the art director there, spending most of my time obsessing over layouts long before I ever touched a prototype tool. Towards the end of my college career, I found myself drawn to the space where design and technology intersect, and that curiosity pulled me into UX. I also had the chance to mentor students at UC Davis's first student-run UX consultancy, Design Interactive. There, I really enjoyed helping others grow in the field while also preparing myself to evolve into a professional role.</p>
+            <p>When I step away from the screen, you'll find me attempting snowboard runs (emphasis on <em>attempting</em>), baking sourdough for friends and family, or finding the perfect spot for a picnic.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Divider ─── -->
+  <div class="container">
+    <svg class="section-divider" viewBox="0 0 800 30" preserveAspectRatio="none" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="15" x2="800" y2="15" stroke-width="1.1"/>
+      <g transform="translate(400,15)"><rect class="div-star-bg" x="-14" y="-14" width="28" height="28"/><path class="div-star" d="M0,-11 C0,-2 4.5,0 11,0 C4.5,0 0,2 0,11 C0,2 -4.5,0 -11,0 C-4.5,0 0,-2 0,-11Z"/></g>
+    </svg>
+  </div>
+
+  <!-- ═══════ SKILLS ═══════ -->
+  <section class="about-skills" aria-label="Skills and tools">
+    <div class="container">
+      <div class="about-skills-grid">
+
+        <div class="reveal">
+          <p class="about-label">What I bring</p>
+          <h2>Tools & Craft</h2>
+        </div>
+
+        <ul class="skills-list about-skills-list reveal reveal-delay-1" role="list">
+          <li class="skill-item"><svg class="skill-star" aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z"/></svg><span class="skill-name">Figma</span></li>
+          <li class="skill-item"><svg class="skill-star" aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z"/></svg><span class="skill-name">Adobe Suite</span></li>
+          <li class="skill-item"><svg class="skill-star" aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z"/></svg><span class="skill-name">UX Design</span></li>
+          <li class="skill-item"><svg class="skill-star" aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z"/></svg><span class="skill-name">UI Design</span></li>
+          <li class="skill-item"><svg class="skill-star" aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z"/></svg><span class="skill-name">Wireframing</span></li>
+          <li class="skill-item"><svg class="skill-star" aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z"/></svg><span class="skill-name">UX Research</span></li>
+          <li class="skill-item"><svg class="skill-star" aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z"/></svg><span class="skill-name">HTML</span></li>
+          <li class="skill-item"><svg class="skill-star" aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z"/></svg><span class="skill-name">CSS</span></li>
+        </ul>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Divider ─── -->
+  <div class="container">
+    <svg class="section-divider" viewBox="0 0 800 30" preserveAspectRatio="none" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="15" x2="800" y2="15" stroke-width="1.1"/>
+      <g transform="translate(400,15)"><rect class="div-star-bg" x="-14" y="-14" width="28" height="28"/><path class="div-star" d="M0,-11 C0,-2 4.5,0 11,0 C4.5,0 0,2 0,11 C0,2 -4.5,0 -11,0 C-4.5,0 0,-2 0,-11Z"/></g>
+    </svg>
+  </div>
+
+  <!-- ═══════ ASK ME ABOUT ═══════ -->
+  <section class="about-ask" aria-label="Ask me about">
+    <div class="container">
+      <div class="reveal">
+        <p class="about-label">Let's chat</p>
+        <h2>Ask me about</h2>
+        <p class="ask-intro">Tap anything you're curious about.</p>
+      </div>
+
+      <div class="ask-tag-wall reveal reveal-delay-1">
+        <!-- Row 1 -->
+        <span class="ask-tag c-rose"  data-topic="my role at Badger Meter"         data-grad-from="rgba(196,96,126,0.55)"  data-grad-to="rgba(123,134,200,0.55)" data-star-tl="#C4607E" data-star-br="#7B86C8" data-text="At Badger Meter, I primarily work on two products: BEACON, our desktop platform for water utilities, and EyeOnWater, our consumer-facing mobile app. I work closely with product and engineering to make sure complex data feels approachable to our user base."><svg class="ask-tag-star" viewBox="0 0 24 24" fill="none"><path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#C4607E"/></svg> my role at Badger Meter</span>
+        <span class="ask-tag c-peach" data-topic="my fool proof sourdough recipe"   data-grad-from="rgba(212,135,90,0.55)"   data-grad-to="rgba(196,96,126,0.55)"  data-star-tl="#D4875A" data-star-br="#C4607E" data-text="It took me a few weeks and a few failed loaves, but I've finally nailed down a recipe I swear by. I always do a fermentolyse, where I mix my starter, flour, and water and have it sit for an hour before I mix in my salt. This helps the flour fully hydrate and gluten begins to form naturally, before any work begins. Ask me and I'll happily send the full recipe your way!"><svg class="ask-tag-star" viewBox="0 0 24 24" fill="none"><path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#D4875A"/></svg> my fool proof sourdough recipe</span>
+        <span class="ask-tag c-sky"   data-topic="best pan fried dumplings in SF"   data-grad-from="rgba(91,159,204,0.55)"   data-grad-to="rgba(196,96,126,0.55)"  data-star-tl="#5B9FCC" data-star-br="#C4607E" data-text="When it comes to pan fried dumplings, or sheng jian bao (生煎包), my favorite spot in the city has to be Dumpling Kitchen. You can see them make their dumplings from scratch in the back, and I also highly recommend their chow mein as well!"><svg class="ask-tag-star" viewBox="0 0 24 24" fill="none"><path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#5B9FCC"/></svg> best pan fried dumplings in SF</span>
+        <!-- Row 2 -->
+        <span class="ask-tag c-peri"  data-topic="my favorite picnic spots"         data-grad-from="rgba(123,134,200,0.55)"  data-grad-to="rgba(91,159,204,0.55)"  data-star-tl="#7B86C8" data-star-br="#5B9FCC" data-text="I really enjoy picnicking at Villa Montalvo in Saratoga! There's a beautiful open lawn area in front of the villa as well as an Italian inspired garden on the premises as well. In SF, nothing beats a picnic at Chrissy Field with the Golden Gate Bridge in the background, or Lindley Meadows in Golden Gate Park!"><svg class="ask-tag-star" viewBox="0 0 24 24" fill="none"><path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#7B86C8"/></svg> my favorite picnic spots</span>
+        <span class="ask-tag c-rose"  data-topic="boba recommendations"             data-grad-from="rgba(196,96,126,0.55)"  data-grad-to="rgba(212,135,90,0.55)"  data-star-tl="#C4607E" data-star-br="#D4875A" data-text="I've been really loving Heytea lately! Their tea flavors really stand out and they experiment a lot with different flavor combinations. They have plenty of locations in the South Bay, but when I'm up in the city, Little Sweet is my go to. My usual order is always: white gourd milk tea, 50% sweet, with mini boba (trust me!)."><svg class="ask-tag-star" viewBox="0 0 24 24" fill="none"><path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#C4607E"/></svg> boba recommendations</span>
+        <span class="ask-tag c-peach" data-topic="travel tips"                      data-grad-from="rgba(123,134,200,0.55)"  data-grad-to="rgba(212,135,90,0.55)"  data-star-tl="#7B86C8" data-star-br="#D4875A" data-text="As a type A traveler, I always have to plan and map out my trips. Some of my favorite tools is to use Google Maps to bookmark and organize all the spots I want to visit, and then create a daily schedule on either Google Sheets, or an app called Wanderlust."><svg class="ask-tag-star" viewBox="0 0 24 24" fill="none"><path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#D4875A"/></svg> travel tips</span>
+      </div>
+
+      <div class="ask-blurb-area">
+        <div class="ask-blurb" id="ask-blurb">
+          <svg class="ask-blurb-sparkle-tl" aria-hidden="true" viewBox="0 0 24 24" fill="none">
+            <path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#C4607E"/>
+          </svg>
+          <p class="ask-blurb-topic" id="ask-blurb-topic"></p>
+          <p class="ask-blurb-text" id="ask-blurb-text"></p>
+          <span class="ask-blurb-cta" id="ask-blurb-cta"></span>
+          <svg class="ask-blurb-sparkle-br" aria-hidden="true" viewBox="0 0 24 24" fill="none">
+            <path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#7B86C8"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="miffy-anchor">
+    <div class="container" style="position:relative;">
+      <div class="miffy-wrap" aria-label="Miffy peeking up at you">
+        <p class="miffy-label">miffy says hi!</p>
+        <img src="images/miffy.png" alt="Miffy peeking" />
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════ FOOTER ═══════ -->
+  <footer id="contact" aria-label="Contact">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-cta reveal">
+          <p class="footer-cta-label">Let's connect</p>
+          <h3 class="footer-cta-heading">Come say hi!</h3>
+        </div>
+        <div class="footer-actions reveal reveal-delay-1">
+          <a href="https://www.linkedin.com/in/emilylam1099" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="Emily Lam on LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+              <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+            </svg>
+            LinkedIn
+          </a>
+          <a href="mailto:emlam1099@gmail.com" class="footer-link" aria-label="Email Emily Lam">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            Email
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-sparkles" aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#C4607E"/></svg>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#7B86C8"/></svg>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#D4875A"/></svg>
+        </div>
+        <p class="footer-copy">© 2026 Emily Lam. Designed with care, fueled by sourdough.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    const askTags = document.querySelectorAll('.ask-tag');
+    const askBlurb = document.getElementById('ask-blurb');
+    const askBlurbTopic = document.getElementById('ask-blurb-topic');
+    const askBlurbText = document.getElementById('ask-blurb-text');
+    const askBlurbCta = document.getElementById('ask-blurb-cta');
+    let askActive = null;
+    const sparkleColors = ['#C4607E', '#7B86C8', '#D4875A', '#5B9FCC'];
+
+    function randomSparkleColors() {
+      const shuffled = [...sparkleColors].sort(() => Math.random() - 0.5);
+      document.querySelector('.ask-blurb-sparkle-tl path').setAttribute('fill', shuffled[0]);
+      document.querySelector('.ask-blurb-sparkle-br path').setAttribute('fill', shuffled[1]);
+    }
+
+    function hideBlurb(cb) {
+      askBlurb.classList.remove('visible');
+      askBlurb.classList.add('hiding');
+      setTimeout(() => {
+        askBlurb.classList.remove('hiding');
+        if (cb) cb();
+      }, 350);
+    }
+
+    function showBlurb(tag) {
+      askBlurbTopic.textContent = tag.dataset.topic;
+      askBlurbText.textContent = tag.dataset.text;
+      askBlurbCta.textContent = tag.dataset.cta || '';
+      if (tag.dataset.starTl) document.querySelector('.ask-blurb-sparkle-tl path').setAttribute('fill', tag.dataset.starTl);
+      if (tag.dataset.starBr) document.querySelector('.ask-blurb-sparkle-br path').setAttribute('fill', tag.dataset.starBr);
+      if (tag.dataset.gradFrom) askBlurb.style.setProperty('--grad-from', tag.dataset.gradFrom);
+      if (tag.dataset.gradTo)   askBlurb.style.setProperty('--grad-to',   tag.dataset.gradTo);
+      askBlurb.classList.add('visible');
+    }
+
+    askTags.forEach(tag => {
+      tag.addEventListener('click', () => {
+        if (askActive === tag) {
+          tag.classList.remove('active');
+          hideBlurb();
+          askActive = null;
+          return;
+        }
+        const prev = askActive;
+        if (prev) prev.classList.remove('active');
+        tag.classList.add('active');
+        askActive = tag;
+        if (prev) {
+          hideBlurb(() => showBlurb(tag));
+        } else {
+          showBlurb(tag);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

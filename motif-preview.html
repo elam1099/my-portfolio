@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Motif Preview — Spinning Orbit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #FBF7F4;
+      --rose: #F2B6C8;
+      --periwinkle: #C2C9F5;
+      --peach: #F8D0BA;
+      --sky: #B8D8F0;
+      --text-dark: #2A2020;
+      --text-mid: #6B5555;
+      --text-light: #A89090;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); }
+
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 500px;
+      overflow: hidden;
+    }
+
+    .blob {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 70% at  8% 20%, var(--rose)       0%, var(--rose)       20%, transparent 60%),
+        radial-gradient(ellipse 75% 85% at 90%  8%, var(--periwinkle) 0%, var(--periwinkle) 20%, transparent 60%),
+        radial-gradient(ellipse 85% 70% at 78% 85%, var(--peach)      0%, var(--peach)      20%, transparent 60%),
+        radial-gradient(ellipse 70% 80% at 15% 75%, var(--sky)        0%, var(--sky)        20%, transparent 60%),
+        var(--cream);
+    }
+
+    .orbital-svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: visible;
+    }
+
+    /*
+      APPROACH:
+      – Each ring uses a <g> that rotates (precesses) around the SVG center (50% 50%).
+        transform-origin is set explicitly in px to match the viewBox center (720 450).
+      – The <ellipse> inside scaleY-oscillates to simulate depth (edge-on ↔ face-on).
+        transform-origin is the ellipse's own center, also set in px.
+      – Solid strokes (no gradients) so transforms don't break rendering.
+      – Opacity kept visible for preview; we'll dial back when pushing to portfolio.
+    */
+
+    /* Ring A — large, periwinkle */
+    .ring-a-wrap {
+      transform-origin: 720px 450px;
+      animation: precess-a 38s linear infinite;
+    }
+    .ring-a {
+      transform-origin: 720px 450px;
+      animation: tilt 19s ease-in-out infinite;
+    }
+
+    /* Ring B — medium, rose, counter-clockwise, phase offset */
+    .ring-b-wrap {
+      transform-origin: 720px 450px;
+      animation: precess-b 54s linear infinite;
+      animation-delay: -18s;
+    }
+    .ring-b {
+      transform-origin: 720px 450px;
+      animation: tilt 27s ease-in-out infinite;
+      animation-delay: -9s;
+    }
+
+    /* Ring C — small, peach */
+    .ring-c-wrap {
+      transform-origin: 720px 450px;
+      animation: precess-a 72s linear infinite;
+      animation-delay: -40s;
+    }
+    .ring-c {
+      transform-origin: 720px 450px;
+      animation: tilt 34s ease-in-out infinite;
+      animation-delay: -20s;
+    }
+
+    @keyframes precess-a {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+    @keyframes precess-b {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(-360deg); }
+    }
+
+    /* scaleY: 0.08 = nearly edge-on, 0.75 = nearly face-on */
+    /* twice per cycle so each full precess = one visual "spin" */
+    @keyframes tilt {
+      0%   { transform: scaleY(0.08); opacity: 0.25; }
+      25%  { transform: scaleY(0.75); opacity: 0.55; }
+      50%  { transform: scaleY(0.08); opacity: 0.25; }
+      75%  { transform: scaleY(0.75); opacity: 0.55; }
+      100% { transform: scaleY(0.08); opacity: 0.25; }
+    }
+
+
+    /* Hero text */
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+      padding: 0 8%;
+    }
+
+    .hero-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 0.85rem;
+    }
+
+    .hero-h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 5.5vw, 4rem);
+      font-weight: 700;
+      line-height: 1.08;
+      color: var(--text-dark);
+      max-width: 560px;
+    }
+
+    .hero-sub {
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      margin-top: 1.1rem;
+    }
+    .hero-sub span { margin: 0 0.35rem; opacity: 0.35; }
+
+    .caption {
+      padding: 1.5rem 8%;
+      font-size: 0.78rem;
+      color: var(--text-light);
+      font-style: italic;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <div class="blob"></div>
+
+    <!--
+      viewBox: 0 0 1440 900
+      Orbital center: 720, 450
+    -->
+    <svg class="orbital-svg"
+         viewBox="0 0 1440 900"
+         preserveAspectRatio="xMidYMid slice"
+         fill="none"
+         xmlns="http://www.w3.org/2000/svg">
+
+      <defs>
+        <!-- Ellipse paths for animateMotion to follow -->
+        <!-- Ring A: rx=480, ry=155, center 720,450 -->
+        <path id="path-a" d="M 240,450 A 480,155 0 0,1 1200,450 A 480,155 0 0,1 240,450"/>
+        <!-- Ring B: rx=360, ry=118, center 720,450 -->
+        <path id="path-b" d="M 360,450 A 360,118 0 0,1 1080,450 A 360,118 0 0,1 360,450"/>
+        <!-- Ring C: rx=245, ry=80, center 720,450 -->
+        <path id="path-c" d="M 475,450 A 245,80 0 0,1 965,450 A 245,80 0 0,1 475,450"/>
+      </defs>
+
+      <!-- Ring A: outermost, periwinkle -->
+      <g class="ring-a-wrap">
+        <ellipse class="ring-a"
+          cx="720" cy="450" rx="480" ry="155"
+          stroke="rgba(140,150,230,0.6)" stroke-width="1.2"/>
+        <!-- Star travels ring A path, same tilt animation as ring -->
+        <g class="ring-a">
+          <path d="M0,-11 C0,-2 8.5,0 11,0 C8.5,0 0,2 0,11 C0,2 -8.5,0 -11,0 C-8.5,0 0,-2 0,-11Z"
+                fill="rgba(140,150,230,0.9)">
+            <animateMotion dur="22s" repeatCount="indefinite" rotate="auto">
+              <mpath href="#path-a"/>
+            </animateMotion>
+          </path>
+        </g>
+      </g>
+
+      <!-- Ring B: middle, rose -->
+      <g class="ring-b-wrap">
+        <ellipse class="ring-b"
+          cx="720" cy="450" rx="360" ry="118"
+          stroke="rgba(220,130,160,0.55)" stroke-width="1.1"/>
+        <g class="ring-b">
+          <path d="M0,-9 C0,-1.6 7,0 9,0 C7,0 0,1.6 0,9 C0,1.6 -7,0 -9,0 C-7,0 0,-1.6 0,-9Z"
+                fill="rgba(220,130,160,0.9)">
+            <animateMotion dur="30s" repeatCount="indefinite" rotate="auto">
+              <mpath href="#path-b"/>
+            </animateMotion>
+          </path>
+        </g>
+      </g>
+
+      <!-- Ring C: innermost, peach -->
+      <g class="ring-c-wrap">
+        <ellipse class="ring-c"
+          cx="720" cy="450" rx="245" ry="80"
+          stroke="rgba(230,170,130,0.5)" stroke-width="1.0"/>
+        <g class="ring-c">
+          <path d="M0,-8 C0,-1.4 6,0 8,0 C6,0 0,1.4 0,8 C0,1.4 -6,0 -8,0 C-6,0 0,-1.4 0,-8Z"
+                fill="rgba(230,170,130,0.9)">
+            <animateMotion dur="38s" repeatCount="indefinite" rotate="auto">
+              <mpath href="#path-c"/>
+            </animateMotion>
+          </path>
+        </g>
+      </g>
+    </svg>
+
+    <div class="hero-inner">
+      <p class="hero-label">Currently at Badger Meter.</p>
+      <h1 class="hero-h1">Designing for the person on the other side of the screen.</h1>
+      <p class="hero-sub">UX Designer <span>·</span> SF Bay Area <span>·</span> UC Davis Alum</p>
+    </div>
+  </div>
+
+  <p class="caption">↑ Preview mode — one 4-pointed star per ring, each travelling its ellipse path while the ring precesses and tilts in 3D. Opacity is higher than it would be in production.</p>
+
+  <!-- ══════════════════════════════════════════
+       DIVIDER PREVIEW
+       Based on motif5.jpg: hairline that tapers
+       into a 4-pointed star at its center.
+  ══════════════════════════════════════════ -->
+
+  <style>
+    .divider-section {
+      padding: 4rem 8%;
+      background: var(--cream);
+    }
+
+    .section-label-sm {
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 3rem;
+    }
+
+    /* The divider: full-width SVG, 30px tall to give star room */
+    .motif-divider {
+      display: block;
+      width: 100%;
+      height: 30px;
+      overflow: visible;
+      margin: 0.5rem 0;
+    }
+
+    /* Fake section content */
+    .fake-section {
+      padding: 3rem 0;
+    }
+    .fake-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 0.75rem;
+    }
+    .fake-section p {
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+      max-width: 520px;
+    }
+
+  </style>
+
+  <div class="divider-section">
+    <p class="section-label-sm">Section divider — motif5 reference, horizontal</p>
+
+    <!-- FAKE SECTION 1 -->
+    <div class="fake-section">
+      <h2>Work</h2>
+      <p>Two case studies in B2B SaaS — designing features people actually want to use.</p>
+    </div>
+
+    <!-- DIVIDER 1 -->
+    <svg class="motif-divider" viewBox="0 0 800 30" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="15" x2="800" y2="15" stroke="rgba(42,32,32,0.15)" stroke-width="0.6"/>
+      <g transform="translate(400, 15)">
+        <path d="M0,-11 C0,-2 4.5,0 11,0 C4.5,0 0,2 0,11 C0,2 -4.5,0 -11,0 C-4.5,0 0,-2 0,-11Z" fill="rgba(42,32,32,0.5)"/>
+      </g>
+    </svg>
+
+    <!-- FAKE SECTION 2 -->
+    <div class="fake-section">
+      <h2>About</h2>
+      <p>Hi, I'm Emily. I design for BEACON and EyeOnWater at Badger Meter, obsessing over the details from concept through launch.</p>
+    </div>
+
+    <!-- DIVIDER 2 -->
+    <svg class="motif-divider" viewBox="0 0 800 30" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="15" x2="800" y2="15" stroke="rgba(42,32,32,0.15)" stroke-width="0.6"/>
+      <g transform="translate(400, 15)">
+        <path d="M0,-11 C0,-2 4.5,0 11,0 C4.5,0 0,2 0,11 C0,2 -4.5,0 -11,0 C-4.5,0 0,-2 0,-11Z" fill="rgba(42,32,32,0.5)"/>
+      </g>
+    </svg>
+
+    <!-- FAKE SECTION 3 -->
+    <div class="fake-section">
+      <h2>After Hours</h2>
+      <p>Snowboarding, sourdough, and finding the perfect picnic spot.</p>
+    </div>
+
+    <p class="caption" style="padding:0; margin-top:2rem;">
+      Two variations — centered star and offset star. The star pulses gently; line fades at both ends. Could be used between every major section.
+    </p>
+  </div>
+
+</body>
+</html>

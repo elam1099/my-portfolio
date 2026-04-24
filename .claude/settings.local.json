@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:warm-naiad-cf0694.netlify.app)",
+      "WebFetch(domain:open.spotify.com)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(open /Users/emilylam/Desktop/my-portfolio/preview-this-or-that.html)",
+      "Bash(open /Users/emilylam/Desktop/my-portfolio/preview-ask-me-about.html)",
+      "Bash(open /Users/emilylam/Desktop/my-portfolio/preview-skills-hover.html)",
+      "Bash(open /Users/emilylam/Desktop/my-portfolio/preview-miffy.html)",
+      "Bash(ls /Users/emilylam/Desktop/my-portfolio/images/miffy*)",
+      "Bash(npx --version)",
+      "Bash(python3 -c \"import http.server, socketserver; handler = http.server.SimpleHTTPRequestHandler; httpd = socketserver.TCPServer\\(\\('', 3000\\), handler\\); httpd.serve_forever\\(\\)\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/motif-preview.html)",
+      "Bash(pkill -f \"http.server 3000\")",
+      "Bash(python3 -m http.server 3000)",
+      "Bash(curl -s http://localhost:3000/motif-preview.html)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/index.html)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/about.html)",
+      "Bash(curl -s -o /dev/null -w \" %{http_code}\" http://localhost:3000/after-hours.html)",
+      "Bash(sed -i '' 's|<img src=\"images/em-logo\\\\.svg\" alt=\"Emily Lam\" class=\"nav-logo-img\" />|<span class=\"nav-logo-shimmer\"><img src=\"images/em-logo.svg\" alt=\"Emily Lam\" class=\"nav-logo-img\" /></span>|g' /Users/emilylam/Desktop/my-portfolio/index.html /Users/emilylam/Desktop/my-portfolio/about.html /Users/emilylam/Desktop/my-portfolio/case-study-eyeonwater.html /Users/emilylam/Desktop/my-portfolio/case-study-mfa.html)",
+      "Bash(sed -i '' 's|<img src=\"images/em-logo2\\\\.svg\" alt=\"Emily Lam\" class=\"nav-logo-img\" />|<span class=\"nav-logo-shimmer\"><img src=\"images/em-logo2.svg\" alt=\"Emily Lam\" class=\"nav-logo-img\" /></span>|g' /Users/emilylam/Desktop/my-portfolio/after-hours.html)",
+      "Bash(sed -i '' 's|<p class=\"footer-sig\">Emily Lam</p>||g' /Users/emilylam/Desktop/my-portfolio/index.html /Users/emilylam/Desktop/my-portfolio/about.html /Users/emilylam/Desktop/my-portfolio/after-hours.html)",
+      "Bash(sed -i '' 's|© 2026 Emily Lam. Designed &amp; built with care.|© 2026 Emily Lam. Fueled by sourdough.|g' /Users/emilylam/Desktop/my-portfolio/index.html /Users/emilylam/Desktop/my-portfolio/about.html /Users/emilylam/Desktop/my-portfolio/after-hours.html)",
+      "Bash(python3 -c ':*)",
+      "WebFetch(domain:docs.google.com)",
+      "WebFetch(domain:doc-04-c8-docstext.googleusercontent.com)"
+    ]
+  }
+}

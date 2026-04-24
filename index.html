@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emily Lam — UX Designer</title>
+  <meta name="description" content="Emily Lam is a UX designer with 4 years of experience crafting digital products that feel intuitive and human." />
+  <link rel="stylesheet" href="css/styles.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="icon" type="image/svg+xml" href="images/em-logo.svg" />
+</head>
+<body>
+
+  <!-- Grain overlay -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Custom cursor -->
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <!-- ═══════ NAV ═══════ -->
+  <nav role="navigation" aria-label="Main navigation">
+    <a href="#hero" class="nav-logo" aria-label="Emily Lam — home"><span class="nav-logo-shimmer"><img src="images/em-logo.svg" alt="Emily Lam" class="nav-logo-img" /></span></a>
+    <ul class="nav-links">
+      <li class="mobile-menu-logo"><a href="#hero" class="nav-logo" aria-label="Emily Lam — home"><span class="nav-logo-shimmer"><img src="images/em-logo.svg" alt="Emily Lam" class="nav-logo-img" /></span></a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="after-hours.html">After Hours</a></li>
+    </ul>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <svg class="toggle-icon-open" width="22" height="14" viewBox="0 0 22 14" fill="none" aria-hidden="true">
+        <line x1="0" y1="1" x2="22" y2="1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="0" y1="7" x2="22" y2="7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="0" y1="13" x2="22" y2="13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <svg class="toggle-icon-close" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+        <line x1="4" y1="4" x2="20" y2="20"/>
+        <line x1="20" y1="4" x2="4" y2="20"/>
+      </svg>
+    </button>
+  </nav>
+
+  <!-- ═══════ HERO ═══════ -->
+  <section id="hero" aria-label="Introduction">
+    <!-- Morphing gradient background — hero only -->
+    <div class="bg-canvas" aria-hidden="true"></div>
+
+    <!-- Orbital rings -->
+    <svg class="orbital-rings" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <path id="ring-path-a" d="M 240,450 A 480,155 0 0,1 1200,450 A 480,155 0 0,1 240,450"/>
+        <path id="ring-path-b" d="M 360,450 A 360,118 0 0,1 1080,450 A 360,118 0 0,1 360,450"/>
+        <path id="ring-path-c" d="M 475,450 A 245,80 0 0,1 965,450 A 245,80 0 0,1 475,450"/>
+      </defs>
+      <g class="ring-a-wrap">
+        <ellipse class="ring-a" cx="720" cy="450" rx="480" ry="155" stroke="rgba(140,150,230,0.75)" stroke-width="1.6"/>
+        <g class="ring-a">
+          <path d="M0,-11 C0,-2 8.5,0 11,0 C8.5,0 0,2 0,11 C0,2 -8.5,0 -11,0 C-8.5,0 0,-2 0,-11Z" fill="rgba(140,150,230,0.9)">
+            <animateMotion dur="22s" repeatCount="indefinite" rotate="auto"><mpath href="#ring-path-a"/></animateMotion>
+          </path>
+        </g>
+      </g>
+      <g class="ring-b-wrap">
+        <ellipse class="ring-b" cx="720" cy="450" rx="360" ry="118" stroke="rgba(220,130,160,0.7)" stroke-width="1.5"/>
+        <g class="ring-b">
+          <path d="M0,-9 C0,-1.6 7,0 9,0 C7,0 0,1.6 0,9 C0,1.6 -7,0 -9,0 C-7,0 0,-1.6 0,-9Z" fill="rgba(220,130,160,0.9)">
+            <animateMotion dur="30s" repeatCount="indefinite" rotate="auto"><mpath href="#ring-path-b"/></animateMotion>
+          </path>
+        </g>
+      </g>
+      <g class="ring-c-wrap">
+        <ellipse class="ring-c" cx="720" cy="450" rx="245" ry="80" stroke="rgba(230,170,130,0.65)" stroke-width="1.4"/>
+        <g class="ring-c">
+          <path d="M0,-8 C0,-1.4 6,0 8,0 C6,0 0,1.4 0,8 C0,1.4 -6,0 -8,0 C-6,0 0,-1.4 0,-8Z" fill="rgba(230,170,130,0.9)">
+            <animateMotion dur="38s" repeatCount="indefinite" rotate="auto"><mpath href="#ring-path-c"/></animateMotion>
+          </path>
+        </g>
+      </g>
+    </svg>
+
+    <!-- Decorative sparkles -->
+    <div class="hero-sparkles" aria-hidden="true">
+      <!-- Large sparkle top-right -->
+      <svg class="sparkle-deco" style="top:12%; right:8%; width:56px; height:56px;" viewBox="0 0 24 24" fill="none">
+        <path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#C4607E"/>
+      </svg>
+      <!-- Medium sparkle mid-left -->
+      <svg class="sparkle-deco" style="top:55%; left:3%; width:32px; height:32px;" viewBox="0 0 24 24" fill="none">
+        <path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#7B86C8"/>
+      </svg>
+      <!-- Small sparkle top-center -->
+      <svg class="sparkle-deco" style="top:20%; left:42%; width:18px; height:18px;" viewBox="0 0 24 24" fill="none">
+        <path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#D4875A"/>
+      </svg>
+      <!-- Tiny sparkle bottom-right -->
+      <svg class="sparkle-deco" style="bottom:22%; right:18%; width:14px; height:14px;" viewBox="0 0 24 24" fill="none">
+        <path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#C4607E"/>
+      </svg>
+    </div>
+
+    <div class="container">
+      <div class="hero-inner">
+        <div>
+          <p class="hero-label">Hi there, I'm</p>
+          <h1 class="hero-name">Emily Lam</h1>
+          <p class="hero-tagline">
+            I design seamless, human-centered experiences that make complex systems feel simple.
+          </p>
+          <div class="hero-currently">
+            <p class="hero-currently-label">Currently</p>
+            <p class="hero-currently-text">I'm currently a UX designer at Badger Meter, based in the San Francisco Bay Area.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <span class="scroll-line"></span>
+      Scroll
+    </div>
+  </section>
+
+  <!-- ─── Divider ─── -->
+  <div class="container">
+    <svg class="section-divider" viewBox="0 0 800 30" preserveAspectRatio="none" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="15" x2="800" y2="15" stroke-width="1.1"/>
+      <g transform="translate(400,15)"><rect class="div-star-bg" x="-14" y="-14" width="28" height="28"/><path class="div-star" d="M0,-11 C0,-2 4.5,0 11,0 C4.5,0 0,2 0,11 C0,2 -4.5,0 -11,0 C-4.5,0 0,-2 0,-11Z"/></g>
+    </svg>
+  </div>
+
+  <!-- ═══════ WORK ═══════ -->
+  <section id="work" aria-label="Selected work">
+    <div class="container">
+      <div class="section-header reveal">
+        <div>
+          <p class="section-label">Selected Work</p>
+          <h2>Projects</h2>
+        </div>
+      </div>
+
+      <div class="project-grid">
+
+        <!-- Card 1: EyeOnWater -->
+        <article
+          class="project-card reveal reveal-delay-1"
+          data-href="case-study-eyeonwater.html"
+          role="article"
+          aria-label="Water Budgets for EyeOnWater case study"
+          tabindex="0"
+        >
+          <div class="card-body">
+            <span class="card-number">01</span>
+            <div class="card-tags">
+              <span class="tag">UX Design</span>
+              <span class="tag">Research</span>
+            </div>
+            <h3 class="card-title">Water Budgets for EyeOnWater</h3>
+            <p class="card-desc">Increasing conservation efforts by creating Water Targets for users.</p>
+            <a
+              href="case-study-eyeonwater.html"
+              class="card-link"
+              aria-label="View Water Budgets case study"
+              onclick="event.stopPropagation()"
+            >View case study →</a>
+          </div>
+          <div class="card-visual">
+            <div class="card-visual-inner card-gradient-1">
+              <div class="card-sparkles" aria-hidden="true">
+                <svg class="card-sparkle" style="top:18%; right:12%; width:28px; height:28px;" viewBox="0 0 24 24" fill="none">
+                  <path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="white"/>
+                </svg>
+                <svg class="card-sparkle" style="bottom:22%; left:18%; width:14px; height:14px; animation-delay:1.5s;" viewBox="0 0 24 24" fill="none">
+                  <path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="white"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2: MFA -->
+        <article
+          class="project-card reveal reveal-delay-2"
+          data-href="case-study-mfa.html"
+          role="article"
+          aria-label="MFA Configuration case study"
+          tabindex="0"
+        >
+          <div class="card-body">
+            <span class="card-number">02</span>
+            <div class="card-tags">
+              <span class="tag">UI Design</span>
+              <span class="tag">Security UX</span>
+            </div>
+            <h3 class="card-title">MFA Configuration</h3>
+            <p class="card-desc">Implementing multi-factor authentication configuration for users.</p>
+            <a
+              href="case-study-mfa.html"
+              class="card-link"
+              aria-label="View MFA Configuration case study"
+              onclick="event.stopPropagation()"
+            >View case study →</a>
+          </div>
+          <div class="card-visual">
+            <div class="card-visual-inner card-gradient-2">
+              <div class="card-sparkles" aria-hidden="true">
+                <svg class="card-sparkle" style="top:25%; left:15%; width:22px; height:22px;" viewBox="0 0 24 24" fill="none">
+                  <path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="white"/>
+                </svg>
+                <svg class="card-sparkle" style="bottom:18%; right:20%; width:16px; height:16px; animation-delay:2s;" viewBox="0 0 24 24" fill="none">
+                  <path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="white"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="miffy-anchor">
+    <div class="container" style="position:relative;">
+      <div class="miffy-wrap" aria-label="Miffy peeking up at you">
+        <p class="miffy-label">miffy says hi!</p>
+        <img src="images/miffy.png" alt="Miffy peeking" />
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════ FOOTER ═══════ -->
+  <footer id="contact" aria-label="Contact">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-cta reveal">
+          <p class="footer-cta-label">Let's connect</p>
+          <h3 class="footer-cta-heading">Come say hi!</h3>
+        </div>
+        <div class="footer-actions reveal reveal-delay-1">
+          <a href="https://www.linkedin.com/in/emilylam1099" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="Emily Lam on LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+              <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+            </svg>
+            LinkedIn
+          </a>
+          <a href="mailto:emlam1099@gmail.com" class="footer-link" aria-label="Email Emily Lam">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            Email
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-sparkles" aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#C4607E"/></svg>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#7B86C8"/></svg>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#D4875A"/></svg>
+        </div>
+        <p class="footer-copy">© 2026 Emily Lam. Designed with care, fueled by sourdough.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

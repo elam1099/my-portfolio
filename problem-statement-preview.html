@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Problem Statement Style Preview — Emily Lam</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream: #FBF7F4;
+      --text-dark: #2A2020;
+      --text-mid: #6B5555;
+      --text-light: #A89090;
+      --star-rose: #C4607E;
+      --star-periwinkle: #7B86C8;
+      --star-peach: #D4875A;
+      --star-sky: #5B9FCC;
+    }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      padding: 3rem 2rem 5rem;
+    }
+    h1 {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 1.5rem;
+      margin-bottom: 0.4rem;
+    }
+    .subtitle {
+      font-size: 0.875rem;
+      color: var(--text-light);
+      margin-bottom: 3rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      max-width: 900px;
+    }
+    .option {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .option-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-light);
+    }
+    /* Shared label style inside cards */
+    .ps-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+    .ps-text {
+      font-size: 0.9rem;
+      line-height: 1.75;
+      color: var(--text-mid);
+    }
+
+    /* ── A: Soft top border line ── */
+    .card-a {
+      padding: 1.25rem 0 0;
+      border-top: 1.5px solid rgba(196,96,126,0.35);
+    }
+    .card-a .ps-label { color: var(--star-rose); }
+
+    /* ── B: Subtle tinted background, no border ── */
+    .card-b {
+      background: linear-gradient(135deg, rgba(242,182,200,0.12) 0%, rgba(194,201,245,0.1) 100%);
+      border-radius: 14px;
+      padding: 1.5rem;
+    }
+    .card-b .ps-label { color: var(--text-light); }
+
+    /* ── C: Left rule + quote feel ── */
+    .card-c {
+      padding: 0.25rem 0 0.25rem 1.25rem;
+      border-left: 2px solid rgba(196,96,126,0.4);
+    }
+    .card-c .ps-label { color: var(--star-rose); }
+    .card-c .ps-text { font-style: italic; }
+
+    /* ── D: Dashed border, very light ── */
+    .card-d {
+      border: 1.5px dashed rgba(42,32,32,0.15);
+      border-radius: 14px;
+      padding: 1.5rem;
+    }
+    .card-d .ps-label { color: var(--text-light); }
+
+    /* ── E: Plain text, label + small star accent ── */
+    .card-e {
+      padding: 0;
+    }
+    .card-e-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.6rem;
+    }
+    .card-e .ps-label { color: var(--text-light); margin-bottom: 0; }
+    .card-e .ps-text { color: var(--text-dark); font-size: 1rem; line-height: 1.8; }
+
+    /* ── F: Hairline box, cream fill, very understated ── */
+    .card-f {
+      background: rgba(255,255,255,0.55);
+      border: 1px solid rgba(42,32,32,0.1);
+      border-radius: 14px;
+      padding: 1.5rem;
+    }
+    .card-f .ps-label { color: var(--text-light); }
+
+    /* ── C1: Left rule + frosted background ── */
+    .card-c1 {
+      padding: 1rem 1.25rem;
+      border-left: 2px solid rgba(196,96,126,0.4);
+      background: rgba(255,255,255,0.5);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 0 12px 12px 0;
+    }
+    .card-c1 .ps-label { color: var(--star-rose); }
+    .card-c1 .ps-text { font-style: italic; }
+
+    /* ── C2: Left rule + frosted + soft tint ── */
+    .card-c2 {
+      padding: 1rem 1.25rem;
+      border-left: 2px solid rgba(196,96,126,0.4);
+      background: linear-gradient(135deg, rgba(242,182,200,0.1) 0%, rgba(255,255,255,0.45) 100%);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 0 12px 12px 0;
+    }
+    .card-c2 .ps-label { color: var(--star-rose); }
+    .card-c2 .ps-text { font-style: italic; }
+  </style>
+</head>
+<body>
+
+  <h1>Problem statement styles</h1>
+  <p class="subtitle">Subtle options — pick one and I'll implement it.</p>
+
+  <div class="grid">
+
+    <!-- A -->
+    <div class="option">
+      <p class="option-label">A — Top rule</p>
+      <div class="card-a">
+        <p class="ps-label">Problem statement</p>
+        <p class="ps-text">Our platform lacked any multi-factor authentication capability, making it impossible for users to protect their accounts independently — leaving them vulnerable and without the self-serve security options they expect from modern software.</p>
+      </div>
+    </div>
+
+    <!-- B -->
+    <div class="option">
+      <p class="option-label">B — Soft tinted block</p>
+      <div class="card-b">
+        <p class="ps-label">Problem statement</p>
+        <p class="ps-text">Our platform lacked any multi-factor authentication capability, making it impossible for users to protect their accounts independently — leaving them vulnerable and without the self-serve security options they expect from modern software.</p>
+      </div>
+    </div>
+
+    <!-- C -->
+    <div class="option">
+      <p class="option-label">C — Left rule, italic</p>
+      <div class="card-c">
+        <p class="ps-label">Problem statement</p>
+        <p class="ps-text">Our platform lacked any multi-factor authentication capability, making it impossible for users to protect their accounts independently — leaving them vulnerable and without the self-serve security options they expect from modern software.</p>
+      </div>
+    </div>
+
+    <!-- D -->
+    <div class="option">
+      <p class="option-label">D — Dashed border</p>
+      <div class="card-d">
+        <p class="ps-label">Problem statement</p>
+        <p class="ps-text">Our platform lacked any multi-factor authentication capability, making it impossible for users to protect their accounts independently — leaving them vulnerable and without the self-serve security options they expect from modern software.</p>
+      </div>
+    </div>
+
+    <!-- E -->
+    <div class="option">
+      <p class="option-label">E — Plain, label + sparkle</p>
+      <div class="card-e">
+        <div class="card-e-header">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="#C4607E" aria-hidden="true">
+            <path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z"/>
+          </svg>
+          <p class="ps-label">Problem statement</p>
+        </div>
+        <p class="ps-text">Our platform lacked any multi-factor authentication capability, making it impossible for users to protect their accounts independently — leaving them vulnerable and without the self-serve security options they expect from modern software.</p>
+      </div>
+    </div>
+
+    <!-- F -->
+    <div class="option">
+      <p class="option-label">F — Hairline box</p>
+      <div class="card-f">
+        <p class="ps-label">Problem statement</p>
+        <p class="ps-text">Our platform lacked any multi-factor authentication capability, making it impossible for users to protect their accounts independently — leaving them vulnerable and without the self-serve security options they expect from modern software.</p>
+      </div>
+    </div>
+
+    <!-- C1 -->
+    <div class="option">
+      <p class="option-label">C + frosted white</p>
+      <div class="card-c1">
+        <p class="ps-label">Problem statement</p>
+        <p class="ps-text">Our platform lacked any multi-factor authentication capability, making it impossible for users to protect their accounts independently — leaving them vulnerable and without the self-serve security options they expect from modern software.</p>
+      </div>
+    </div>
+
+    <!-- C2 -->
+    <div class="option">
+      <p class="option-label">C + frosted rose tint</p>
+      <div class="card-c2">
+        <p class="ps-label">Problem statement</p>
+        <p class="ps-text">Our platform lacked any multi-factor authentication capability, making it impossible for users to protect their accounts independently — leaving them vulnerable and without the self-serve security options they expect from modern software.</p>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

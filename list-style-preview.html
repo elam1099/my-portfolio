@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>List Style Preview — Emily Lam</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream: #FBF7F4;
+      --rose: #F2B6C8;
+      --periwinkle: #C2C9F5;
+      --peach: #F8D0BA;
+      --sky: #B8DEFF;
+      --text-dark: #2A2020;
+      --text-mid: #6B5555;
+      --text-light: #A89090;
+      --star-rose: #C4607E;
+      --star-periwinkle: #7B86C8;
+      --star-peach: #D4875A;
+      --star-sky: #5B9FCC;
+    }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      padding: 3rem 2rem;
+    }
+    h1 {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-dark);
+    }
+    .subtitle {
+      font-size: 0.875rem;
+      color: var(--text-light);
+      margin-bottom: 3rem;
+    }
+
+    /* ── Layout ── */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
+    }
+    .option {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 2px 20px rgba(42,32,32,0.06);
+    }
+    .option-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid rgba(42,32,32,0.07);
+    }
+    .context-p {
+      font-size: 0.9rem;
+      line-height: 1.75;
+      color: var(--text-mid);
+      margin-bottom: 1.25rem;
+    }
+
+    /* ══════════════════════════════════════
+       OPTION A — Sparkle star bullets
+    ══════════════════════════════════════ */
+    .list-a {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .list-a li {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      font-size: 0.9rem;
+      line-height: 1.75;
+      color: var(--text-mid);
+    }
+    .list-a .star-icon {
+      flex-shrink: 0;
+      margin-top: 0.35em;
+    }
+    .list-a strong {
+      color: var(--text-dark);
+      font-weight: 500;
+    }
+
+    /* ══════════════════════════════════════
+       OPTION B — Left border accent
+    ══════════════════════════════════════ */
+    .list-b {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .list-b li {
+      padding: 0.9rem 1rem 0.9rem 1.25rem;
+      border-left: 2px solid;
+      font-size: 0.9rem;
+      line-height: 1.75;
+      color: var(--text-mid);
+      border-radius: 0 8px 8px 0;
+    }
+    .list-b li:nth-child(1) {
+      border-color: var(--star-rose);
+      background: rgba(244, 182, 200, 0.08);
+    }
+    .list-b li:nth-child(2) {
+      border-color: var(--star-periwinkle);
+      background: rgba(123, 134, 200, 0.07);
+    }
+    .list-b strong {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+    .list-b li:nth-child(1) strong { color: var(--star-rose); }
+    .list-b li:nth-child(2) strong { color: var(--star-periwinkle); }
+
+    /* ══════════════════════════════════════
+       OPTION C — Inline pill labels
+    ══════════════════════════════════════ */
+    .list-c {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .list-c li {
+      font-size: 0.9rem;
+      line-height: 1.75;
+      color: var(--text-mid);
+    }
+    .pill {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.2em 0.65em;
+      border-radius: 100px;
+      margin-right: 0.5rem;
+      vertical-align: middle;
+      position: relative;
+      top: -1px;
+    }
+    .pill-rose {
+      background: rgba(242,182,200,0.35);
+      color: var(--star-rose);
+    }
+    .pill-periwinkle {
+      background: rgba(194,201,245,0.4);
+      color: var(--star-periwinkle);
+    }
+
+    /* ══════════════════════════════════════
+       OPTION D — Numbered with thin rule
+    ══════════════════════════════════════ */
+    .list-d {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .list-d li {
+      display: grid;
+      grid-template-columns: 2rem 1fr;
+      gap: 1rem;
+      padding: 1.1rem 0;
+      border-bottom: 1px solid rgba(42,32,32,0.07);
+      font-size: 0.9rem;
+      line-height: 1.75;
+      color: var(--text-mid);
+      align-items: start;
+    }
+    .list-d li:first-child { border-top: 1px solid rgba(42,32,32,0.07); }
+    .list-d .num {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: rgba(42,32,32,0.15);
+      padding-top: 0.1em;
+    }
+    .list-d strong {
+      display: block;
+      color: var(--text-dark);
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+      font-size: 0.92rem;
+    }
+
+    /* ══════════════════════════════════════
+       OPTION E — Soft tinted callout blocks
+    ══════════════════════════════════════ */
+    .list-e {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .list-e li {
+      padding: 1.1rem 1.25rem;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      line-height: 1.75;
+      color: var(--text-mid);
+    }
+    .list-e li:nth-child(1) {
+      background: linear-gradient(135deg, rgba(242,182,200,0.2) 0%, rgba(248,208,186,0.15) 100%);
+    }
+    .list-e li:nth-child(2) {
+      background: linear-gradient(135deg, rgba(194,201,245,0.2) 0%, rgba(184,222,255,0.15) 100%);
+    }
+    .list-e strong {
+      display: block;
+      color: var(--text-dark);
+      font-weight: 500;
+      margin-bottom: 0.3rem;
+    }
+
+    /* ══════════════════════════════════════
+       OPTION F — Dot + label, minimal
+    ══════════════════════════════════════ */
+    .list-f {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+    .list-f li {
+      display: flex;
+      gap: 0.65rem;
+      align-items: baseline;
+      font-size: 0.9rem;
+      line-height: 1.75;
+      color: var(--text-mid);
+    }
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      position: relative;
+      top: 0.45em;
+    }
+    .dot-rose { background: var(--star-rose); }
+    .dot-periwinkle { background: var(--star-periwinkle); }
+    .list-f strong {
+      color: var(--text-dark);
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>List style options</h1>
+  <p class="subtitle">For the two bullet points in the Problem section — pick your favourite and I'll implement it.</p>
+
+  <div class="grid">
+
+    <!-- A: Sparkle stars -->
+    <div class="option">
+      <p class="option-label">A — Sparkle star bullets</p>
+      <p class="context-p">Previously, users could only secure accounts with passwords, leaving them vulnerable to credential-based attacks.</p>
+      <ul class="list-a">
+        <li>
+          <svg class="star-icon" width="12" height="12" viewBox="0 0 24 24" fill="#C4607E" aria-hidden="true">
+            <path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z"/>
+          </svg>
+          <span><strong>User pain point:</strong> Password-only authentication left accounts exposed. Users had no way to independently add a second layer of protection.</span>
+        </li>
+        <li>
+          <svg class="star-icon" width="12" height="12" viewBox="0 0 24 24" fill="#7B86C8" aria-hidden="true">
+            <path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z"/>
+          </svg>
+          <span><strong>Business need:</strong> MFA became a product priority to meet growing security expectations, and created the opportunity to build a scalable User Settings foundation.</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- B: Left border accent -->
+    <div class="option">
+      <p class="option-label">B — Left border accent</p>
+      <p class="context-p">Previously, users could only secure accounts with passwords, leaving them vulnerable to credential-based attacks.</p>
+      <ul class="list-b">
+        <li>
+          <strong>User pain point</strong>
+          Password-only authentication left accounts exposed. Users had no way to independently add a second layer of protection.
+        </li>
+        <li>
+          <strong>Business need</strong>
+          MFA became a product priority to meet growing security expectations, and created the opportunity to build a scalable User Settings foundation.
+        </li>
+      </ul>
+    </div>
+
+    <!-- C: Inline pill labels -->
+    <div class="option">
+      <p class="option-label">C — Inline pill labels</p>
+      <p class="context-p">Previously, users could only secure accounts with passwords, leaving them vulnerable to credential-based attacks.</p>
+      <ul class="list-c">
+        <li>
+          <span class="pill pill-rose">User pain point</span>
+          Password-only authentication left accounts exposed. Users had no way to independently add a second layer of protection.
+        </li>
+        <li>
+          <span class="pill pill-periwinkle">Business need</span>
+          MFA became a product priority to meet growing security expectations, and created the opportunity to build a scalable User Settings foundation.
+        </li>
+      </ul>
+    </div>
+
+    <!-- D: Numbered with thin rule -->
+    <div class="option">
+      <p class="option-label">D — Numbered with thin rules</p>
+      <p class="context-p">Previously, users could only secure accounts with passwords, leaving them vulnerable to credential-based attacks.</p>
+      <ul class="list-d">
+        <li>
+          <span class="num">01</span>
+          <span>
+            <strong>User pain point</strong>
+            Password-only authentication left accounts exposed. Users had no way to independently add a second layer of protection.
+          </span>
+        </li>
+        <li>
+          <span class="num">02</span>
+          <span>
+            <strong>Business need</strong>
+            MFA became a product priority to meet growing security expectations, and created the opportunity to build a scalable User Settings foundation.
+          </span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- E: Soft tinted blocks -->
+    <div class="option">
+      <p class="option-label">E — Soft gradient tint blocks</p>
+      <p class="context-p">Previously, users could only secure accounts with passwords, leaving them vulnerable to credential-based attacks.</p>
+      <ul class="list-e">
+        <li>
+          <strong>User pain point</strong>
+          Password-only authentication left accounts exposed. Users had no way to independently add a second layer of protection.
+        </li>
+        <li>
+          <strong>Business need</strong>
+          MFA became a product priority to meet growing security expectations, and created the opportunity to build a scalable User Settings foundation.
+        </li>
+      </ul>
+    </div>
+
+    <!-- F: Dot + label, minimal -->
+    <div class="option">
+      <p class="option-label">F — Colored dot, minimal</p>
+      <p class="context-p">Previously, users could only secure accounts with passwords, leaving them vulnerable to credential-based attacks.</p>
+      <ul class="list-f">
+        <li>
+          <span class="dot dot-rose"></span>
+          <span><strong>User pain point:</strong> Password-only authentication left accounts exposed. Users had no way to independently add a second layer of protection.</span>
+        </li>
+        <li>
+          <span class="dot dot-periwinkle"></span>
+          <span><strong>Business need:</strong> MFA became a product priority to meet growing security expectations, and created the opportunity to build a scalable User Settings foundation.</span>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+</body>
+</html>
