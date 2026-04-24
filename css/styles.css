@@ -874,6 +874,24 @@ body.dark-page .nav-logo-img {
   margin-bottom: 1.75rem;
   max-width: 36ch;
 }
+/* ── Disabled / coming soon card ── */
+.project-card--disabled {
+  opacity: 0.5;
+  cursor: default;
+  pointer-events: none;
+}
+.card-coming-soon {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  border: 1px solid rgba(42,32,32,0.15);
+  border-radius: 100px;
+  padding: 0.3em 0.85em;
+}
+
 .card-link {
   display: inline-flex;
   align-items: center;
