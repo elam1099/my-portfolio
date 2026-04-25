@@ -26,7 +26,10 @@
       "WebFetch(domain:docs.google.com)",
       "WebFetch(domain:doc-04-c8-docstext.googleusercontent.com)",
       "WebFetch(domain:brandonleedesigns.com)",
-      "mcp__Claude_in_Chrome__tabs_context_mcp"
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "Bash(sed -i '' 's|href=\"index.html#work\"|href=\"/#work\"|g' about.html after-hours.html case-study-eyeonwater.html case-study-mfa.html)",
+      "Bash(sed -i '' 's|href=\"index.html#hero\"|href=\"/\"|g' about.html after-hours.html case-study-eyeonwater.html case-study-mfa.html)",
+      "Bash(sed -i '' 's|href=\"index.html\"|href=\"/\"|g' about.html after-hours.html case-study-eyeonwater.html case-study-mfa.html)"
     ]
   }
 }
