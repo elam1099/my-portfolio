@@ -15,6 +15,158 @@
     .ca-section-label { font-size: 0.75rem !important; color: var(--text-light) !important; margin-bottom: 0.85rem !important; line-height: 1 !important; }
     .ca-step p { font-size: 0.875rem !important; margin-bottom: 0 !important; line-height: 1.6 !important; color: var(--text-mid) !important; }
     .ca-note { margin-bottom: 0 !important; }
+
+    /* Smaller title in hero */
+    .cs-hero .cs-title {
+      font-size: clamp(1.8rem, 3.5vw, 3rem) !important;
+    }
+
+    /* ── Hero redesign ── */
+    .cs-hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 68% 40%, rgba(194,201,245,0.5) 0%, transparent 50%),
+        radial-gradient(circle at 22% 65%, rgba(242,182,200,0.4) 0%, transparent 48%),
+        radial-gradient(circle at 78% 78%, rgba(248,208,186,0.35) 0%, transparent 44%),
+        #FBF7F4;
+    }
+
+    /* Orbital rings — same system as home page */
+    .cs-hero-rings {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      overflow: visible;
+      z-index: 0;
+    }
+    .r-a-wrap {
+      transform-box: view-box; transform-origin: 50% 50%;
+      animation: ring-precess-a 38s linear infinite;
+    }
+    .r-b-wrap {
+      transform-box: view-box; transform-origin: 50% 50%;
+      animation: ring-precess-b 54s linear infinite;
+      animation-delay: -18s;
+    }
+    .r-c-wrap {
+      transform-box: view-box; transform-origin: 50% 50%;
+      animation: ring-precess-a 72s linear infinite;
+      animation-delay: -40s;
+    }
+    .r-a {
+      transform-box: view-box; transform-origin: 50% 50%;
+      animation: ring-tilt 19s ease-in-out infinite;
+    }
+    .r-b {
+      transform-box: view-box; transform-origin: 50% 50%;
+      animation: ring-tilt 27s ease-in-out infinite;
+      animation-delay: -9s;
+    }
+    .r-c {
+      transform-box: view-box; transform-origin: 50% 50%;
+      animation: ring-tilt 34s ease-in-out infinite;
+      animation-delay: -20s;
+    }
+    @keyframes ring-precess-a {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+    @keyframes ring-precess-b {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(-360deg); }
+    }
+    @keyframes ring-tilt {
+      0%   { transform: scaleY(0.08); opacity: 0.18; }
+      25%  { transform: scaleY(0.72); opacity: 0.55; }
+      50%  { transform: scaleY(0.08); opacity: 0.18; }
+      75%  { transform: scaleY(0.72); opacity: 0.55; }
+      100% { transform: scaleY(0.08); opacity: 0.18; }
+    }
+
+    /* Hero split layout */
+    .cs-hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Tags */
+    .cs-hero-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
+    .cs-hero-tag {
+      font-size: 0.75rem; font-weight: 500;
+      padding: 0.25rem 0.75rem; border-radius: 999px;
+    }
+    .cs-hero-tag-periwinkle {
+      background: rgba(123,134,200,0.12);
+      border: 1px solid rgba(123,134,200,0.4);
+      color: #5a66a8;
+    }
+    .cs-hero-tag-rose {
+      background: rgba(196,96,126,0.1);
+      border: 1px solid rgba(196,96,126,0.35);
+      color: #a84d6a;
+    }
+
+    /* Tagline */
+    .cs-hero-tagline {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--text-mid);
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    /* Screens */
+    .cs-hero-screens {
+      position: relative;
+      height: 440px;
+      max-width: 520px;
+    }
+    .cs-hero-screens img {
+      position: absolute;
+      border-radius: 10px;
+    }
+    .cs-hero-screens img:nth-child(1) {
+      width: 72%;
+      top: 14px; left: 0; bottom: auto; right: auto;
+      transform: rotate(-3.5deg);
+      box-shadow: 0 4px 20px rgba(42,32,32,0.1), 0 16px 40px rgba(42,32,32,0.12);
+      opacity: 0.82;
+      z-index: 1;
+    }
+    .cs-hero-screens img:nth-child(2) {
+      width: 72%;
+      bottom: 14px; right: 0; top: auto; left: auto;
+      transform: rotate(2deg);
+      box-shadow: 0 6px 24px rgba(42,32,32,0.12), 0 20px 52px rgba(42,32,32,0.16);
+      z-index: 2;
+    }
+    .cs-hero-screens-glow {
+      position: absolute;
+      inset: -30px;
+      background:
+        radial-gradient(circle at 60% 40%, rgba(194,201,245,0.6) 0%, transparent 55%),
+        radial-gradient(circle at 30% 70%, rgba(242,182,200,0.45) 0%, transparent 50%),
+        radial-gradient(circle at 80% 75%, rgba(248,208,186,0.4) 0%, transparent 45%);
+      filter: blur(22px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    @media (max-width: 768px) {
+      .cs-hero-inner {
+        grid-template-columns: 1fr !important;
+        gap: 2.5rem !important;
+      }
+      .cs-hero-screens {
+        height: 280px !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -47,42 +199,91 @@
 
   <!-- ═══════ CASE STUDY HERO ═══════ -->
   <header class="cs-hero" aria-label="Project overview">
-    <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;overflow:hidden;">
-      <svg style="position:absolute;top:22%;right:9%;width:44px;height:44px;opacity:0.4;animation:sparkle-float 4.5s ease-in-out infinite;" viewBox="0 0 24 24" fill="none">
-        <path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#EDB5C5"/>
+
+    <!-- Orbital rings -->
+    <svg class="cs-hero-rings" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" style="opacity:0.55;">
+      <defs>
+        <path id="cs-rp-a" d="M 240,450 A 480,155 0 0,1 1200,450 A 480,155 0 0,1 240,450"/>
+        <path id="cs-rp-b" d="M 360,450 A 360,118 0 0,1 1080,450 A 360,118 0 0,1 360,450"/>
+        <path id="cs-rp-c" d="M 475,450 A 245,80 0 0,1 965,450 A 245,80 0 0,1 475,450"/>
+      </defs>
+      <g class="r-a-wrap">
+        <ellipse class="r-a" cx="720" cy="450" rx="480" ry="155" stroke="rgba(140,150,230,0.75)" stroke-width="1.6"/>
+        <g class="r-a">
+          <path d="M0,-11 C0,-2 8.5,0 11,0 C8.5,0 0,2 0,11 C0,2 -8.5,0 -11,0 C-8.5,0 0,-2 0,-11Z" fill="rgba(140,150,230,0.9)">
+            <animateMotion dur="22s" repeatCount="indefinite" rotate="auto"><mpath href="#cs-rp-a"/></animateMotion>
+          </path>
+        </g>
+      </g>
+      <g class="r-b-wrap">
+        <ellipse class="r-b" cx="720" cy="450" rx="360" ry="118" stroke="rgba(220,130,160,0.7)" stroke-width="1.5"/>
+        <g class="r-b">
+          <path d="M0,-9 C0,-1.6 7,0 9,0 C7,0 0,1.6 0,9 C0,1.6 -7,0 -9,0 C-7,0 0,-1.6 0,-9Z" fill="rgba(220,130,160,0.9)">
+            <animateMotion dur="30s" repeatCount="indefinite" rotate="auto"><mpath href="#cs-rp-b"/></animateMotion>
+          </path>
+        </g>
+      </g>
+      <g class="r-c-wrap">
+        <ellipse class="r-c" cx="720" cy="450" rx="245" ry="80" stroke="rgba(230,170,130,0.65)" stroke-width="1.4"/>
+        <g class="r-c">
+          <path d="M0,-8 C0,-1.4 6,0 8,0 C6,0 0,1.4 0,8 C0,1.4 -6,0 -8,0 C-6,0 0,-1.4 0,-8Z" fill="rgba(230,170,130,0.9)">
+            <animateMotion dur="38s" repeatCount="indefinite" rotate="auto"><mpath href="#cs-rp-c"/></animateMotion>
+          </path>
+        </g>
+      </g>
+    </svg>
+
+    <!-- Sparkle decorations -->
+    <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;z-index:1;">
+      <svg style="position:absolute;top:10%;right:7%;width:22px;height:22px;animation:sparkle-float 4.5s ease-in-out infinite;" viewBox="0 0 24 24" fill="none">
+        <path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#7B86C8"/>
       </svg>
-      <svg style="position:absolute;bottom:28%;left:5%;width:18px;height:18px;opacity:0.35;animation:sparkle-float 5s ease-in-out infinite;animation-delay:1.5s;" viewBox="0 0 24 24" fill="none">
-        <path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#BBC5E8"/>
+      <svg style="position:absolute;bottom:12%;left:4%;width:14px;height:14px;animation:sparkle-float 5s ease-in-out infinite;animation-delay:2s;" viewBox="0 0 24 24" fill="none">
+        <path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#C4607E"/>
       </svg>
     </div>
 
     <div class="container cs-hero-inner reveal">
-      <a href="index.html" class="cs-back">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path d="M19 12H5M5 12l7-7M5 12l7 7"/>
-        </svg>
-        Back to work
-      </a>
-      <h1 class="cs-title">MFA Configuration</h1>
-      <div class="cs-meta">
-        <div class="cs-meta-item">
-          <p class="cs-meta-label">Timeline</p>
-          <p class="cs-meta-value">TBD</p>
+      <!-- Left: text -->
+      <div>
+        <div class="cs-hero-tags">
+          <span class="cs-hero-tag cs-hero-tag-periwinkle">Security UX</span>
+          <span class="cs-hero-tag cs-hero-tag-rose">UI Design</span>
         </div>
-        <div class="cs-meta-item">
-          <p class="cs-meta-label">Tools</p>
-          <p class="cs-meta-value">Figma</p>
-        </div>
-        <div class="cs-meta-item">
-          <p class="cs-meta-label">Role</p>
-          <p class="cs-meta-value">Sole UX Designer</p>
-        </div>
-        <div class="cs-meta-item">
-          <p class="cs-meta-label">Focus</p>
-          <p class="cs-meta-value">Security UX, Settings Architecture</p>
+        <a href="index.html" class="cs-back">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M19 12H5M5 12l7-7M5 12l7 7"/>
+          </svg>
+          Back to work
+        </a>
+        <h1 class="cs-title">MFA Configuration</h1>
+        <p class="cs-hero-tagline">Designing BEACON's first self-serve, multi-factor authentication enrollment experience.</p>
+        <div class="cs-meta">
+          <div class="cs-meta-item">
+            <p class="cs-meta-label">Timeline</p>
+            <p class="cs-meta-value">3 months</p>
+          </div>
+          <div class="cs-meta-item">
+            <p class="cs-meta-label">Tools</p>
+            <p class="cs-meta-value">Figma</p>
+          </div>
+          <div class="cs-meta-item">
+            <p class="cs-meta-label">Role</p>
+            <p class="cs-meta-value">Sole UX Designer</p>
+          </div>
         </div>
       </div>
+
+      <!-- Right: screens -->
+      <div class="cs-hero-screens">
+        <img src="case-studies/MFA/mfa-preview2.png" alt="MFA settings preview"
+          style="position:absolute;width:80%;top:14px;left:0;right:auto;bottom:auto;transform:rotate(-3.5deg);border-radius:10px;opacity:0.82;z-index:1;box-shadow:0 4px 20px rgba(42,32,32,0.1),0 16px 40px rgba(42,32,32,0.12);" />
+        <img src="case-studies/MFA/mfa-preview1.png" alt="MFA enrollment preview"
+          style="position:absolute;width:80%;bottom:14px;right:0;top:auto;left:auto;transform:rotate(2deg);border-radius:10px;z-index:2;box-shadow:0 6px 24px rgba(42,32,32,0.12),0 20px 52px rgba(42,32,32,0.16);" />
+        <div class="cs-hero-screens-glow" aria-hidden="true"></div>
+      </div>
     </div>
+
   </header>
 
   <main class="container">
@@ -485,7 +686,10 @@
             As I've continued working with our IAM (Identity Access Management) team on other projects, it further reinforces the potential the User Settings tab holds. The MFA page has set a foundation for a centralized hub where users can manage their identity, security, and account preferences in one place, rather than having to search through the entire application to find where they want to be.
           </p>
           <p>
-            If there are additions to be made post MVP, the most natural next step would be expanding the MFA methods available, specifically adding email verification as a third option alongside the authenticator app and SMS. Email is a familiar, low-barrier method for users who may not have an authenticator app or a mobile number readily available, and it would make the enrollment experience more inclusive without complicating the existing flow.
+            The most natural next step would be expanding the MFA methods available, specifically adding email verification as a third option alongside the authenticator app and SMS. Email is a familiar, low-barrier method for users who may not have an authenticator app or a mobile number readily available, and it would make the enrollment experience more inclusive without complicating the existing flow.
+          </p>
+          <p>
+            Post MVP, I am currently working on the mobile screens for these designs as well for users to easily complete this experience from their mobile device. 
           </p>
         </div>
       </div>
