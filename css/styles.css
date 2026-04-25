@@ -32,6 +32,10 @@ body {
   cursor: none; /* custom cursor */
 }
 
+/* Suppress all native cursors so the custom cursor always shows */
+*, *::before, *::after { cursor: none !important; }
+}
+
 /* ── Miffy ── */
 .miffy-wrap {
   position: absolute;

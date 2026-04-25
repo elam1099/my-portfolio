@@ -28,8 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(animateRing);
   })();
 
-  // Cursor grow on interactive elements
-  const interactives = document.querySelectorAll('a, button, .project-card, .skill-item');
+  // Cursor grow on clickable elements only
+  const interactives = document.querySelectorAll('a, button, .card-visual, .skill-item');
   interactives.forEach(el => {
     el.addEventListener('mouseenter', () => {
       cursor.style.transform     = 'translate(-50%, -50%) scale(2.5)';
