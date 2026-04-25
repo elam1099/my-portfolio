@@ -157,11 +157,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   reveals.forEach(el => revealObserver.observe(el));
 
-  /* ── Project Card — link entire card ── */
+  /* ── Project Card — click on visual area only ── */
   document.querySelectorAll('.project-card[data-href]').forEach(card => {
-    card.addEventListener('click', () => {
-      window.location.href = card.dataset.href;
-    });
+    const visual = card.querySelector('.card-visual');
+    if (visual) {
+      visual.style.cursor = 'pointer';
+      visual.addEventListener('click', () => {
+        window.location.href = card.dataset.href;
+      });
+    }
   });
 
 });
