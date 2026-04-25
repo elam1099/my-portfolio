@@ -1,2 +1,13 @@
 RewriteEngine On
+
+# Redirect /index.html → /
 RewriteRule ^index\.html$ / [R=301,L]
+
+# Redirect any .html URL → clean URL (e.g. /about.html → /about)
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/([^.]+)\.html[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+# Serve the .html file when a clean URL is requested
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+?)/?$ $1.html [L]
