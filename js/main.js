@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     heroName.innerHTML = text.split('').map((char, i) =>
       char === ' '
         ? '<span style="display:inline-block;width:0.3em"> </span>'
-        : `<span class="letter" style="animation-delay:${0.3 + i * 0.035}s">${char}</span>`
+        : `<span class="letter" style="animation-delay:${0.35 + i * 0.065}s">${char}</span>`
     ).join('');
   }
 
@@ -91,10 +91,10 @@ document.addEventListener('DOMContentLoaded', () => {
     heroLabel.style.cssText += 'opacity:0;animation:label-slide 0.5s ease 0.1s both;';
   }
   if (heroTagline) {
-    heroTagline.style.cssText += 'opacity:0;animation:tagline-rise 0.6s ease 1.1s both;';
+    heroTagline.style.cssText += 'opacity:0;animation:tagline-rise 0.9s ease 1.8s both;';
   }
   if (heroCurrent) {
-    heroCurrent.style.cssText += 'opacity:0;animation:tagline-rise 0.6s ease 1.3s both;';
+    heroCurrent.style.cssText += 'opacity:0;animation:tagline-rise 0.9s ease 2.05s both;';
   }
 
   /* ── Sparkles: entry → hand off to twinkle ── */

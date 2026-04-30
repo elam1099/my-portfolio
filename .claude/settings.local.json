@@ -33,7 +33,9 @@
       "Bash(sed -i '' 's|styles.css?v=11|styles.css?v=12|g' /Users/emilylam/Desktop/my-portfolio/index.html)",
       "Bash(sed -i '' 's|styles.css?v=3|styles.css?v=12|g' /Users/emilylam/Desktop/my-portfolio/about.html /Users/emilylam/Desktop/my-portfolio/after-hours.html)",
       "Bash(sed -i '' 's|styles.css?v=2|styles.css?v=12|g' /Users/emilylam/Desktop/my-portfolio/case-study-mfa.html)",
-      "Bash(python3)"
+      "Bash(python3)",
+      "Bash(lsof -ti:3000)",
+      "Bash(xargs kill *)"
     ]
   }
 }
