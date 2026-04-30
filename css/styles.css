@@ -1175,7 +1175,6 @@ main { background: var(--cream); position: relative; }
 /* Case Study Sections */
 .cs-section {
   padding: clamp(2.5rem, 5vw, 4.5rem) 0;
-  border-top: 1px solid rgba(42,32,32,0.08);
 }
 .cs-section-inner {
   display: grid;

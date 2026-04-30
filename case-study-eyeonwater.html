@@ -5,10 +5,205 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Water Budgets for EyeOnWater — Emily Lam</title>
   <meta name="description" content="Case study: Water Budgets for EyeOnWater — Increasing conservation efforts by creating Water Targets for users." />
-  <link rel="stylesheet" href="css/styles.css?v=3" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="css/styles.css?v=12" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="icon" type="image/svg+xml" href="images/em-logo.svg" />
+  <style>
+    /* Smaller title in hero */
+    .cs-hero .cs-title {
+      font-size: clamp(1.8rem, 3.5vw, 3rem) !important;
+    }
+
+    /* ── Hero redesign ── */
+    .cs-hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 72% 35%, rgba(184,222,255,0.55) 0%, transparent 50%),
+        radial-gradient(circle at 18% 70%, rgba(248,208,186,0.45) 0%, transparent 48%),
+        radial-gradient(circle at 82% 78%, rgba(242,182,200,0.3) 0%, transparent 44%),
+        #FBF7F4;
+    }
+
+    /* Orbital rings — same system as home page */
+    .cs-hero-rings {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      overflow: visible;
+      z-index: 0;
+    }
+    .r-a-wrap {
+      transform-box: view-box; transform-origin: 50% 50%;
+      animation: ring-precess-a 38s linear infinite;
+    }
+    .r-b-wrap {
+      transform-box: view-box; transform-origin: 50% 50%;
+      animation: ring-precess-b 54s linear infinite;
+      animation-delay: -18s;
+    }
+    .r-c-wrap {
+      transform-box: view-box; transform-origin: 50% 50%;
+      animation: ring-precess-a 72s linear infinite;
+      animation-delay: -40s;
+    }
+    .r-a {
+      transform-box: view-box; transform-origin: 50% 50%;
+      animation: ring-tilt 19s ease-in-out infinite;
+    }
+    .r-b {
+      transform-box: view-box; transform-origin: 50% 50%;
+      animation: ring-tilt 27s ease-in-out infinite;
+      animation-delay: -9s;
+    }
+    .r-c {
+      transform-box: view-box; transform-origin: 50% 50%;
+      animation: ring-tilt 34s ease-in-out infinite;
+      animation-delay: -20s;
+    }
+    @keyframes ring-precess-a {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+    @keyframes ring-precess-b {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(-360deg); }
+    }
+    @keyframes ring-tilt {
+      0%   { transform: scaleY(0.08); opacity: 0.18; }
+      25%  { transform: scaleY(0.72); opacity: 0.55; }
+      50%  { transform: scaleY(0.08); opacity: 0.18; }
+      75%  { transform: scaleY(0.72); opacity: 0.55; }
+      100% { transform: scaleY(0.08); opacity: 0.18; }
+    }
+
+    /* Hero split layout */
+    .cs-hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Tags */
+    .cs-hero-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
+    .cs-hero-tag {
+      font-size: 0.75rem; font-weight: 500;
+      padding: 0.25rem 0.75rem; border-radius: 999px;
+    }
+    .cs-hero-tag-peach {
+      background: rgba(212,135,90,0.12);
+      border: 1px solid rgba(212,135,90,0.4);
+      color: #a06030;
+    }
+    .cs-hero-tag-sky {
+      background: rgba(91,159,204,0.12);
+      border: 1px solid rgba(91,159,204,0.4);
+      color: #3d7ea8;
+    }
+
+    /* Tagline */
+    .cs-hero-tagline {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--text-mid);
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    /* Decorative visual (right side) */
+    .cs-hero-visual {
+      position: relative;
+      height: 440px;
+      max-width: 520px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cs-hero-visual-glow {
+      position: absolute;
+      inset: -30px;
+      background:
+        radial-gradient(circle at 60% 40%, rgba(184,222,255,0.6) 0%, transparent 55%),
+        radial-gradient(circle at 30% 70%, rgba(248,208,186,0.45) 0%, transparent 50%),
+        radial-gradient(circle at 80% 75%, rgba(242,182,200,0.35) 0%, transparent 45%);
+      filter: blur(22px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .eow-screen-back {
+      position: absolute;
+      width: 76%;
+      top: 20px; left: 0; right: auto; bottom: auto;
+      border-radius: 14px;
+      transform: rotate(-3deg);
+      z-index: 1;
+      opacity: 0.78;
+      height: 260px;
+      background: linear-gradient(135deg, rgba(184,222,255,0.55) 0%, rgba(194,201,245,0.35) 60%, rgba(251,247,244,0.5) 100%);
+      border: 1px solid rgba(184,222,255,0.5);
+      box-shadow: 0 4px 20px rgba(42,32,32,0.08), 0 16px 40px rgba(42,32,32,0.1);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .eow-screen-back-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      opacity: 0.65;
+    }
+    .eow-screen-front {
+      position: absolute;
+      width: 76%;
+      bottom: 20px; right: 0; top: auto; left: auto;
+      border-radius: 14px;
+      transform: rotate(2deg);
+      z-index: 2;
+      height: 260px;
+      background: linear-gradient(135deg, rgba(251,247,244,0.95) 0%, rgba(248,208,186,0.3) 60%, rgba(242,182,200,0.2) 100%);
+      border: 1px solid rgba(248,208,186,0.5);
+      box-shadow: 0 6px 24px rgba(42,32,32,0.1), 0 20px 52px rgba(42,32,32,0.14);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .eow-screen-front-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .eow-ring-svg {
+      width: 110px;
+      height: 110px;
+    }
+    .eow-ring-label {
+      font-size: 0.7rem;
+      color: var(--text-light);
+      font-family: 'DM Sans', sans-serif;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    @media (max-width: 768px) {
+      .cs-hero-inner {
+        grid-template-columns: 1fr !important;
+        gap: 2.5rem !important;
+      }
+      .cs-hero-visual {
+        height: 280px !important;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -40,55 +235,122 @@
 
   <!-- ═══════ CASE STUDY HERO ═══════ -->
   <header class="cs-hero" aria-label="Project overview">
-    <!-- Decorative sparkles -->
-    <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;overflow:hidden;">
-      <svg style="position:absolute;top:20%;right:10%;width:48px;height:48px;opacity:0.45;animation:sparkle-float 5s ease-in-out infinite;" viewBox="0 0 24 24" fill="none">
-        <path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#BBC5E8"/>
+
+    <!-- Orbital rings -->
+    <svg class="cs-hero-rings" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" style="opacity:0.55;">
+      <defs>
+        <path id="eow-rp-a" d="M 240,450 A 480,155 0 0,1 1200,450 A 480,155 0 0,1 240,450"/>
+        <path id="eow-rp-b" d="M 360,450 A 360,118 0 0,1 1080,450 A 360,118 0 0,1 360,450"/>
+        <path id="eow-rp-c" d="M 475,450 A 245,80 0 0,1 965,450 A 245,80 0 0,1 475,450"/>
+      </defs>
+      <g class="r-a-wrap">
+        <ellipse class="r-a" cx="720" cy="450" rx="480" ry="155" stroke="rgba(91,159,204,0.7)" stroke-width="1.6"/>
+        <g class="r-a">
+          <path d="M0,-11 C0,-2 8.5,0 11,0 C8.5,0 0,2 0,11 C0,2 -8.5,0 -11,0 C-8.5,0 0,-2 0,-11Z" fill="rgba(91,159,204,0.9)">
+            <animateMotion dur="22s" repeatCount="indefinite" rotate="auto"><mpath href="#eow-rp-a"/></animateMotion>
+          </path>
+        </g>
+      </g>
+      <g class="r-b-wrap">
+        <ellipse class="r-b" cx="720" cy="450" rx="360" ry="118" stroke="rgba(212,135,90,0.65)" stroke-width="1.5"/>
+        <g class="r-b">
+          <path d="M0,-9 C0,-1.6 7,0 9,0 C7,0 0,1.6 0,9 C0,1.6 -7,0 -9,0 C-7,0 0,-1.6 0,-9Z" fill="rgba(212,135,90,0.9)">
+            <animateMotion dur="30s" repeatCount="indefinite" rotate="auto"><mpath href="#eow-rp-b"/></animateMotion>
+          </path>
+        </g>
+      </g>
+      <g class="r-c-wrap">
+        <ellipse class="r-c" cx="720" cy="450" rx="245" ry="80" stroke="rgba(220,130,160,0.6)" stroke-width="1.4"/>
+        <g class="r-c">
+          <path d="M0,-8 C0,-1.4 6,0 8,0 C6,0 0,1.4 0,8 C0,1.4 -6,0 -8,0 C-6,0 0,-1.4 0,-8Z" fill="rgba(220,130,160,0.9)">
+            <animateMotion dur="38s" repeatCount="indefinite" rotate="auto"><mpath href="#eow-rp-c"/></animateMotion>
+          </path>
+        </g>
+      </g>
+    </svg>
+
+    <!-- Sparkle decorations -->
+    <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;z-index:1;">
+      <svg style="position:absolute;top:10%;right:7%;width:22px;height:22px;animation:sparkle-float 4.5s ease-in-out infinite;" viewBox="0 0 24 24" fill="none">
+        <path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#5B9FCC"/>
       </svg>
-      <svg style="position:absolute;bottom:25%;left:4%;width:20px;height:20px;opacity:0.35;animation:sparkle-float 4s ease-in-out infinite;animation-delay:2s;" viewBox="0 0 24 24" fill="none">
-        <path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#EDB5C5"/>
+      <svg style="position:absolute;bottom:12%;left:4%;width:14px;height:14px;animation:sparkle-float 5s ease-in-out infinite;animation-delay:2s;" viewBox="0 0 24 24" fill="none">
+        <path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#D4875A"/>
       </svg>
     </div>
 
     <div class="container cs-hero-inner reveal">
-      <a href="index.html" class="cs-back">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path d="M19 12H5M5 12l7-7M5 12l7 7"/>
-        </svg>
-        Back to work
-      </a>
-      <h1 class="cs-title">Water Budgets for EyeOnWater</h1>
-      <div class="cs-meta">
-        <div class="cs-meta-item">
-          <p class="cs-meta-label">My Role</p>
-          <p class="cs-meta-value">
-            <!-- ✏️ Describe your role on this project (e.g. "Lead UX Designer", "UX/UI Designer") -->
-            UX Designer
-          </p>
+      <!-- Left: text -->
+      <div>
+        <div class="cs-hero-tags">
+          <span class="cs-hero-tag cs-hero-tag-peach">UX Design</span>
+          <span class="cs-hero-tag cs-hero-tag-sky">UX Research</span>
         </div>
-        <div class="cs-meta-item">
-          <p class="cs-meta-label">Timeline</p>
-          <p class="cs-meta-value">
-            <!-- ✏️ Add the project timeline (e.g. "Q2 2023 — 3 months") -->
-            TBD
-          </p>
-        </div>
-        <div class="cs-meta-item">
-          <p class="cs-meta-label">Tools</p>
-          <p class="cs-meta-value">
-            <!-- ✏️ List tools used (e.g. "Figma, Maze, Miro") -->
-            Figma, Adobe Suite
-          </p>
-        </div>
-        <div class="cs-meta-item">
-          <p class="cs-meta-label">Team</p>
-          <p class="cs-meta-value">
-            <!-- ✏️ Describe team composition (e.g. "1 designer, 2 PMs, 4 engineers") -->
-            TBD
-          </p>
+        <a href="index.html" class="cs-back">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M19 12H5M5 12l7-7M5 12l7 7"/>
+          </svg>
+          Back to work
+        </a>
+        <h1 class="cs-title">Water Budgets for EyeOnWater</h1>
+        <p class="cs-hero-tagline">Designing a self-serve water target experience for users to aid in their water conservation efforts.</p>
+        <div class="cs-meta">
+          <div class="cs-meta-item">
+            <p class="cs-meta-label">Timeline</p>
+            <p class="cs-meta-value">2025 - Present</p>
+          </div>
+          <div class="cs-meta-item">
+            <p class="cs-meta-label">Tools</p>
+            <p class="cs-meta-value">Figma</p>
+          </div>
+          <div class="cs-meta-item">
+            <p class="cs-meta-label">Role</p>
+            <p class="cs-meta-value">Sole UX Designer</p>
+          </div>
         </div>
       </div>
+
+      <!-- Right: decorative visual -->
+      <div class="cs-hero-visual">
+        <div class="cs-hero-visual-glow" aria-hidden="true"></div>
+        <!-- Back screen: blue-toned, rotated left -->
+        <div class="eow-screen-back" aria-hidden="true">
+          <div class="eow-screen-back-inner">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M24 6 C24 6 10 20 10 30 C10 37.7 16.3 44 24 44 C31.7 44 38 37.7 38 30 C38 20 24 6 24 6Z" fill="rgba(91,159,204,0.35)" stroke="rgba(91,159,204,0.6)" stroke-width="1.5"/>
+            </svg>
+            <div style="width:80%;height:6px;border-radius:3px;background:rgba(91,159,204,0.2);overflow:hidden;">
+              <div style="width:65%;height:100%;background:rgba(91,159,204,0.5);border-radius:3px;"></div>
+            </div>
+            <div style="width:60%;height:4px;border-radius:2px;background:rgba(91,159,204,0.15);margin-top:2px;"></div>
+          </div>
+        </div>
+        <!-- Front screen: warm-toned, rotated right -->
+        <div class="eow-screen-front" aria-hidden="true">
+          <div class="eow-screen-front-inner">
+            <svg class="eow-ring-svg" viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="55" cy="55" r="44" stroke="rgba(212,135,90,0.18)" stroke-width="8"/>
+              <circle cx="55" cy="55" r="44" stroke="rgba(212,135,90,0.55)" stroke-width="8"
+                stroke-dasharray="276.5" stroke-dashoffset="97"
+                stroke-linecap="round"
+                transform="rotate(-90 55 55)"/>
+              <path d="M55 22 C55 22 38 38 38 50 C38 59.4 45.6 67 55 67 C64.4 67 72 59.4 72 50 C72 38 55 22 55 22Z"
+                fill="rgba(212,135,90,0.2)" stroke="rgba(212,135,90,0.55)" stroke-width="1.2"/>
+              <text x="55" y="87" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" font-weight="500" fill="rgba(160,96,48,0.7)">65% of target</text>
+            </svg>
+            <p class="eow-ring-label">Water Target</p>
+          </div>
+        </div>
+        <!-- Corner sparkles -->
+        <svg style="position:absolute;top:6%;right:8%;width:14px;height:14px;animation:sparkle-float 4s ease-in-out infinite;" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#5B9FCC"/>
+        </svg>
+        <svg style="position:absolute;bottom:12%;left:6%;width:11px;height:11px;animation:sparkle-float 5.5s ease-in-out infinite;animation-delay:1.5s;" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#D4875A"/>
+        </svg>
+      </div>
     </div>
+
   </header>
 
   <main class="container">
@@ -99,15 +361,24 @@
         <p class="cs-section-label">01 — Overview</p>
         <div class="cs-section-content">
           <h3>Project Overview</h3>
-          <p class="cs-placeholder">
-            Set the stage. In 2–4 sentences, describe what EyeOnWater is and the context for this project. What product were you working within? Who are its users? What was the opportunity or problem that initiated this project?
+          <p>
+            EyeOnWater is the customer-facing application from Badger Meter, designed to give homeowners real-time visibility into their water usage and proactive leak alerts. Users are customers of water utilities — people who want to understand their consumption but haven't always had the tools to act on it. The app puts that data directly in their hands, making the invisible visible.
           </p>
-          <p class="cs-placeholder">
-            Briefly summarize what you set out to build — Water Targets/Budgets — and why it matters for conservation. Keep this high-level; you'll go deeper in the sections below.
+          <p>
+            Water Budgets is a new feature within EyeOnWater that gives users the ability to set a personal water target — one per meter — and track their progress toward it over time. Rather than simply observing how much water they use, users can now define how much they want to use, turning passive data into an active conservation goal.
+          </p>
+          <p>
+            <!-- ⚠️ VERIFY: Adjust timeline if needed -->
+            This was a net-new feature with no prior equivalent in the product. It originated as a utility-imposed model — where utilities would set water targets for their customers — but evolved into a user-driven one, giving homeowners full agency over their own conservation efforts. The project has been ongoing for over a year, progressing through multiple rounds of iteration across low, mid, and high fidelity.
           </p>
         </div>
       </div>
     </div>
+
+    <svg class="section-divider" viewBox="0 0 800 30" preserveAspectRatio="none" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="15" x2="800" y2="15" stroke-width="1.1"/>
+      <g transform="translate(400,15)"><rect class="div-star-bg" x="-14" y="-14" width="28" height="28"/><path class="div-star" d="M0,-11 C0,-2 4.5,0 11,0 C4.5,0 0,2 0,11 C0,2 -4.5,0 -11,0 C-4.5,0 0,-2 0,-11Z"/></g>
+    </svg>
 
     <!-- ── 2. The Problem ── -->
     <div class="cs-section reveal">
@@ -115,22 +386,28 @@
         <p class="cs-section-label">02 — The Problem</p>
         <div class="cs-section-content">
           <h3>What needed to change?</h3>
-          <p class="cs-placeholder">
-            Describe the problem from the user's perspective. What friction or gap existed before this feature? How were users managing (or not managing) water usage without Water Targets? Include any data, support tickets, or user feedback that highlighted the need.
+          <p>
+            EyeOnWater already gave users visibility into their water usage — but visibility alone doesn't change behavior. Users could see how much water they were using, but had no way to define how much they wanted to use. Without a target to measure against, the data was informative but not actionable. For utilities facing periods of mandated conservation, this gap was especially pronounced: there was no mechanism in the product to support or encourage reduced consumption at the user level.
           </p>
           <div class="cs-two-col">
             <div class="cs-card">
-              <h4>User Pain Point</h4>
-              <p class="cs-placeholder">Describe the core frustration users experienced — what was confusing, missing, or inefficient about the current experience?</p>
+              <h4>User Need</h4>
+              <p>Homeowners who cared about conservation had no way to set a personal goal within the app. They could monitor their usage passively, but couldn't establish a target to work toward, track their progress, or feel a sense of ownership over their efforts. The experience was observational, not participatory.</p>
             </div>
             <div class="cs-card">
-              <h4>Business / Product Need</h4>
-              <p class="cs-placeholder">What was the product team or business trying to accomplish? How did this problem align with broader conservation or product goals?</p>
+              <h4>Utility / Business Need</h4>
+              <!-- ⚠️ VERIFY: Add specifics if there were drought conditions, regulatory mandates, or utility-specific drivers -->
+              <p>Utilities needed a way to support water conservation efforts through the product — particularly during times when reduced consumption was a priority. The original direction was utility-imposed targets, but the model shifted to user-driven goals to better respect user autonomy and encourage voluntary participation in conservation.</p>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    <svg class="section-divider" viewBox="0 0 800 30" preserveAspectRatio="none" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="15" x2="800" y2="15" stroke-width="1.1"/>
+      <g transform="translate(400,15)"><rect class="div-star-bg" x="-14" y="-14" width="28" height="28"/><path class="div-star" d="M0,-11 C0,-2 4.5,0 11,0 C4.5,0 0,2 0,11 C0,2 -4.5,0 -11,0 C-4.5,0 0,-2 0,-11Z"/></g>
+    </svg>
 
     <!-- ── 3. Goals & Success Metrics ── -->
     <div class="cs-section reveal">
@@ -138,63 +415,102 @@
         <p class="cs-section-label">03 — Goals</p>
         <div class="cs-section-content">
           <h3>Defining success</h3>
-          <p class="cs-placeholder">
-            What did you want to achieve? List 2–4 clear goals for this project — both user-facing goals (e.g. "users can easily set and track a water budget") and outcome-based goals (e.g. "increase conservation adoption by X%"). If you had OKRs or product requirements, reference them here.
+          <p>
+            Success for this feature meant more than shipping a form — it meant creating an experience that genuinely motivated users to engage with their water usage in a new way. I framed our goals around both the user experience and the broader conservation mission:
           </p>
+          <ul style="margin: 1rem 0; padding-left: 1.25rem; line-height: 2;">
+            <li><strong>Enable self-serve goal setting</strong> — users can create, view, and manage a personal water target entirely on their own, without utility intervention.</li>
+            <li><strong>Make progress visible and meaningful</strong> — the detail view should communicate how a user is tracking against their target in a way that feels motivating, not clinical.</li>
+            <li><strong>Design for simplicity at the entry point</strong> — the creation form should be short, clear, and low-friction so users aren't discouraged before they even start.</li>
+            <!-- ⚠️ VERIFY: Add any specific product or utility goals if you had measurable targets -->
+            <li><strong>Build a scalable foundation</strong> — the one-target-per-meter constraint was a deliberate scoping decision for v1, establishing a clean model that could expand in future iterations.</li>
+          </ul>
         </div>
       </div>
     </div>
 
+    <svg class="section-divider" viewBox="0 0 800 30" preserveAspectRatio="none" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="15" x2="800" y2="15" stroke-width="1.1"/>
+      <g transform="translate(400,15)"><rect class="div-star-bg" x="-14" y="-14" width="28" height="28"/><path class="div-star" d="M0,-11 C0,-2 4.5,0 11,0 C4.5,0 0,2 0,11 C0,2 -4.5,0 -11,0 C-4.5,0 0,-2 0,-11Z"/></g>
+    </svg>
+
     <!-- ── 4. Research ── -->
     <div class="cs-section reveal">
       <div class="cs-section-inner">
-        <p class="cs-section-label">04 — Research</p>
+        <p class="cs-section-label">04 — Research & Inspiration</p>
         <div class="cs-section-content">
-          <h3>Understanding our users</h3>
-          <p class="cs-placeholder">
-            Describe the research methods you used. Did you conduct user interviews, surveys, usability testing, or review analytics? How many users did you speak to? What were you trying to learn?
+          <h3>Finding direction</h3>
+          <p>
+            Because Water Budgets was a net-new feature with no prior equivalent in EyeOnWater, I started from scratch — with a moodboard. Rather than jumping straight into flows, I wanted to first establish the visual and emotional tone of the experience. Water conservation is a topic that can easily feel guilt-inducing or overly technical; the goal was to find a direction that felt encouraging, clear, and personal.
           </p>
-          <div class="cs-img-placeholder" role="img" aria-label="Research artifacts placeholder">
+          <div class="cs-img-placeholder" role="img" aria-label="Moodboard placeholder">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
               <rect x="3" y="3" width="18" height="18" rx="3"/>
               <circle cx="8.5" cy="8.5" r="1.5"/>
               <polyline points="21 15 16 10 5 21"/>
             </svg>
-            Add research artifacts here — interview quotes, affinity maps, survey results, analytics screenshots
+            Add moodboard here — visual references, tone, and inspiration that shaped the direction
           </div>
-          <p class="cs-placeholder">
-            Summarize your 3–5 most important research findings. Use specific quotes or data points where possible. What surprised you? What confirmed your assumptions?
+          <p>
+            <!-- ⚠️ VERIFY: Add specifics about what apps or products you referenced in your research -->
+            I also looked at how other apps handle goal-setting and resource tracking — fitness apps, budgeting tools, and energy monitors — to understand what patterns make progress feel tangible and motivating. The key insight across all of them: users respond best when they feel in control of their goal, can see their progress at a glance, and receive positive reinforcement for making headway.
           </p>
+          <div class="cs-img-placeholder" role="img" aria-label="Comparative research placeholder">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="3"/>
+              <circle cx="8.5" cy="8.5" r="1.5"/>
+              <polyline points="21 15 16 10 5 21"/>
+            </svg>
+            Add comparative research or reference apps here
+          </div>
         </div>
       </div>
     </div>
+
+    <svg class="section-divider" viewBox="0 0 800 30" preserveAspectRatio="none" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="15" x2="800" y2="15" stroke-width="1.1"/>
+      <g transform="translate(400,15)"><rect class="div-star-bg" x="-14" y="-14" width="28" height="28"/><path class="div-star" d="M0,-11 C0,-2 4.5,0 11,0 C4.5,0 0,2 0,11 C0,2 -4.5,0 -11,0 C-4.5,0 0,-2 0,-11Z"/></g>
+    </svg>
 
     <!-- ── 5. Problem Definition ── -->
     <div class="cs-section reveal">
       <div class="cs-section-inner">
         <p class="cs-section-label">05 — Problem Definition</p>
         <div class="cs-section-content">
-          <h3>Synthesizing insights</h3>
-          <p class="cs-placeholder">
-            After research, how did you synthesize what you learned? Did you build personas, journey maps, or a problem statement? Share the artifacts that helped align your team on the problem to solve.
+          <h3>Shaping the design challenge</h3>
+          <p>
+            After research, I developed a set of "How Might We" questions to reframe the problem space before moving into solutions. This step was especially important on a project with shifting scope — the HMW questions helped anchor the team on what we were actually trying to solve for the user, independent of how the feature was being defined at the product level.
           </p>
-          <div class="cs-img-placeholder" role="img" aria-label="Problem definition artifacts placeholder">
+          <div class="cs-img-placeholder" role="img" aria-label="How Might We questions placeholder">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
               <rect x="3" y="3" width="18" height="18" rx="3"/>
               <circle cx="8.5" cy="8.5" r="1.5"/>
               <polyline points="21 15 16 10 5 21"/>
             </svg>
-            Add persona, journey map, or problem statement artifacts here
+            Add How Might We questions here — sticky notes, FigJam board, or a formatted list
+          </div>
+          <div class="cs-img-placeholder" role="img" aria-label="User flow placeholder">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="3"/>
+              <circle cx="8.5" cy="8.5" r="1.5"/>
+              <polyline points="21 15 16 10 5 21"/>
+            </svg>
+            Add user flow or journey map here
           </div>
           <div class="cs-card" style="margin-top:1.5rem;">
             <h4>Problem Statement</h4>
-            <p class="cs-placeholder">
-              Write your problem statement here. A good format: "EyeOnWater users need a way to [do X] because [reason Y], but currently [barrier Z]."
+            <p>
+              EyeOnWater users need a way to set and track a personal water conservation goal because they want to actively reduce their usage — not just observe it — but currently the app provides no mechanism to define a target or measure progress against it.
             </p>
           </div>
         </div>
       </div>
     </div>
+
+    <svg class="section-divider" viewBox="0 0 800 30" preserveAspectRatio="none" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="15" x2="800" y2="15" stroke-width="1.1"/>
+      <g transform="translate(400,15)"><rect class="div-star-bg" x="-14" y="-14" width="28" height="28"/><path class="div-star" d="M0,-11 C0,-2 4.5,0 11,0 C4.5,0 0,2 0,11 C0,2 -4.5,0 -11,0 C-4.5,0 0,-2 0,-11Z"/></g>
+    </svg>
 
     <!-- ── 6. Ideation ── -->
     <div class="cs-section reveal">
@@ -202,52 +518,77 @@
         <p class="cs-section-label">06 — Ideation</p>
         <div class="cs-section-content">
           <h3>Exploring possibilities</h3>
-          <p class="cs-placeholder">
-            How did you generate design ideas? Did you sketch, run a design sprint, or workshop with stakeholders? What were the 2–3 main concepts or directions you explored? Why did you pursue some and drop others?
+          <p>
+            The ideation phase began with a broad question: what does it actually mean to give a user a "water budget"? I explored different mental models — a quota to stay under, a goal to hit, a historical baseline to beat — and how each framing implied a different experience. The tone of the feature shifted significantly depending on which model was chosen.
           </p>
-          <div class="cs-img-placeholder" role="img" aria-label="Sketches and ideation artifacts placeholder">
+          <p>
+            A major inflection point in ideation was the pivot from the utility-imposed model to the user-driven one. In the original direction, utilities set the target and users were expected to comply — which created a very different design problem from the one we ultimately solved. Once the direction shifted to user-created targets, the experience opened up: users needed to understand what to set, how to set it, and what it meant for their usage going forward.
+          </p>
+          <div class="cs-img-placeholder" role="img" aria-label="Early sketches placeholder">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
               <rect x="3" y="3" width="18" height="18" rx="3"/>
               <circle cx="8.5" cy="8.5" r="1.5"/>
               <polyline points="21 15 16 10 5 21"/>
             </svg>
-            Add sketches, whiteboard photos, or concept explorations here
+            Add early concept sketches or ideation artifacts here
           </div>
         </div>
       </div>
     </div>
+
+    <svg class="section-divider" viewBox="0 0 800 30" preserveAspectRatio="none" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="15" x2="800" y2="15" stroke-width="1.1"/>
+      <g transform="translate(400,15)"><rect class="div-star-bg" x="-14" y="-14" width="28" height="28"/><path class="div-star" d="M0,-11 C0,-2 4.5,0 11,0 C4.5,0 0,2 0,11 C0,2 -4.5,0 -11,0 C-4.5,0 0,-2 0,-11Z"/></g>
+    </svg>
 
     <!-- ── 7. Design Process ── -->
     <div class="cs-section reveal">
       <div class="cs-section-inner">
         <p class="cs-section-label">07 — Design Process</p>
         <div class="cs-section-content">
-          <h3>From rough to refined</h3>
-          <p class="cs-placeholder">
-            Walk through your design iterations. Show wireframes → mid-fi → high-fi progression. For each major design decision, explain the reasoning: what were you trying to solve, what did you try, and what feedback or data led you to iterate?
+          <h3>From sketch to screen</h3>
+          <p>
+            I started with low-fidelity sketches — hand-drawn explorations of the core flows: how a user discovers the feature, what the creation form feels like, and how progress is communicated on the detail view. At this stage I was focused on structure and sequence, not visual design. Sketching allowed me to quickly test multiple layouts without getting attached to any one direction.
           </p>
-          <div class="cs-img-placeholder" role="img" aria-label="Wireframes placeholder">
+          <div class="cs-img-placeholder" role="img" aria-label="Low fidelity sketches placeholder">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
               <rect x="3" y="3" width="18" height="18" rx="3"/>
               <circle cx="8.5" cy="8.5" r="1.5"/>
               <polyline points="21 15 16 10 5 21"/>
             </svg>
-            Add wireframes here
+            Add low-fidelity sketches here
           </div>
-          <p class="cs-placeholder">
-            Describe what changed between iterations and why. What feedback did you get from engineering, product, or user testing that shaped the design?
+          <p>
+            Mid-fidelity brought the structure into Figma, where I could test layouts against the existing design system and gather feedback from product and engineering. This phase involved several significant pivots — most notably around scope. The feature had begun as a broad conservation dashboard concept, and through ongoing reviews it was refined down to two core surfaces: a creation form and a detail view. Keeping scope tight was the right call for v1, and mid-fidelity was where that clarity emerged.
           </p>
-          <div class="cs-img-placeholder" role="img" aria-label="Mid-fidelity designs placeholder">
+          <div class="cs-img-placeholder" role="img" aria-label="Mid fidelity designs placeholder">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
               <rect x="3" y="3" width="18" height="18" rx="3"/>
               <circle cx="8.5" cy="8.5" r="1.5"/>
               <polyline points="21 15 16 10 5 21"/>
             </svg>
-            Add mid-fidelity or iterated designs here
+            Add mid-fidelity designs here
+          </div>
+          <p>
+            <!-- ⚠️ VERIFY: Add specifics about high-fidelity decisions — form fields, validation, progress visualization -->
+            High-fidelity designs applied the full EyeOnWater visual language to the refined scope. Key decisions at this stage included how to present the creation form in a way that felt guided without being overwhelming, how to visualize progress on the detail view in a way that was immediately readable, and how to handle edge cases — such as what happens when a user has already created a target for a given meter.
+          </p>
+          <div class="cs-img-placeholder" role="img" aria-label="High fidelity designs placeholder">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="3"/>
+              <circle cx="8.5" cy="8.5" r="1.5"/>
+              <polyline points="21 15 16 10 5 21"/>
+            </svg>
+            Add high-fidelity designs here
           </div>
         </div>
       </div>
     </div>
+
+    <svg class="section-divider" viewBox="0 0 800 30" preserveAspectRatio="none" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="15" x2="800" y2="15" stroke-width="1.1"/>
+      <g transform="translate(400,15)"><rect class="div-star-bg" x="-14" y="-14" width="28" height="28"/><path class="div-star" d="M0,-11 C0,-2 4.5,0 11,0 C4.5,0 0,2 0,11 C0,2 -4.5,0 -11,0 C-4.5,0 0,-2 0,-11Z"/></g>
+    </svg>
 
     <!-- ── 8. Final Design ── -->
     <div class="cs-section reveal">
@@ -255,20 +596,40 @@
         <p class="cs-section-label">08 — Final Design</p>
         <div class="cs-section-content">
           <h3>The finished experience</h3>
-          <p class="cs-placeholder">
-            Present the final high-fidelity designs. Walk through the key screens or flows — don't just show them, narrate them. What does a user experience from start to finish? What design decisions are you most proud of?
+          <p>
+            The final design centers on two core surfaces: the water target creation form, and the detail view page that becomes the user's home base for tracking their conservation progress.
           </p>
-          <div class="cs-img-placeholder" style="min-height:400px;" role="img" aria-label="Final designs placeholder">
+          <p>
+            The creation form is intentionally simple — users select the meter they want to set a target for, define their usage goal, and confirm. The one-target-per-meter constraint is surfaced clearly in the UI, so users always understand the scope of what they're creating. The form is designed to feel low-stakes: easy to start, easy to complete, and easy to revisit.
+          </p>
+          <div class="cs-img-placeholder" role="img" aria-label="Water target creation form placeholder">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
               <rect x="3" y="3" width="18" height="18" rx="3"/>
               <circle cx="8.5" cy="8.5" r="1.5"/>
               <polyline points="21 15 16 10 5 21"/>
             </svg>
-            Add final high-fidelity mockups or prototype embed here
+            Add water target creation form designs here
+          </div>
+          <p>
+            <!-- ⚠️ VERIFY: Add specifics about what the detail view shows — progress visualization, edit/delete options, billing cycle tracking -->
+            Once a target is created, the detail view gives users an at-a-glance read on how they're tracking — presenting their current usage against their goal in a way that feels motivating rather than punitive. Users can edit or remove their target from this view, keeping full control in their hands. The page is designed to be worth returning to: useful enough that users have a reason to check in on their progress throughout a billing cycle.
+          </p>
+          <div class="cs-img-placeholder" style="min-height:400px;" role="img" aria-label="Water target detail view placeholder">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="3"/>
+              <circle cx="8.5" cy="8.5" r="1.5"/>
+              <polyline points="21 15 16 10 5 21"/>
+            </svg>
+            Add water target detail view designs here
           </div>
         </div>
       </div>
     </div>
+
+    <svg class="section-divider" viewBox="0 0 800 30" preserveAspectRatio="none" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="15" x2="800" y2="15" stroke-width="1.1"/>
+      <g transform="translate(400,15)"><rect class="div-star-bg" x="-14" y="-14" width="28" height="28"/><path class="div-star" d="M0,-11 C0,-2 4.5,0 11,0 C4.5,0 0,2 0,11 C0,2 -4.5,0 -11,0 C-4.5,0 0,-2 0,-11Z"/></g>
+    </svg>
 
     <!-- ── 9. Outcomes ── -->
     <div class="cs-section reveal">
@@ -276,22 +637,30 @@
         <p class="cs-section-label">09 — Outcomes</p>
         <div class="cs-section-content">
           <h3>What changed?</h3>
-          <p class="cs-placeholder">
-            What was the impact of this project? Share metrics, qualitative feedback, or business results where possible. Did conservation rates improve? Did user adoption of the feature meet targets? What did stakeholders or users say after launch?
+          <p>
+            <!-- ⚠️ VERIFY: Update with current launch status and any available results -->
+            Water Budgets is an ongoing project that continues to iterate. The feature has moved through a full design cycle — from moodboard and HMW questions through low, mid, and high fidelity — and the core experience of user-created water targets is taking shape. What's most significant so far is the strategic pivot itself: moving from a utility-imposed model to a user-driven one fundamentally changed what success looks like for this feature, and the design reflects that shift.
           </p>
           <div class="cs-two-col">
             <div class="cs-card">
               <h4>Quantitative Impact</h4>
-              <p class="cs-placeholder">Share any numbers — adoption rate, usage data, reduction in support tickets, task completion rates, etc.</p>
+              <!-- ⚠️ VERIFY: Replace with real metrics post-launch -->
+              <p>Metrics to be added once the feature launches — including water target adoption rate among active EyeOnWater users, engagement with the detail view, and any measurable change in usage patterns among users who set a target vs. those who don't.</p>
             </div>
             <div class="cs-card">
               <h4>Qualitative Impact</h4>
-              <p class="cs-placeholder">Share user quotes, stakeholder feedback, or observations from post-launch testing.</p>
+              <!-- ⚠️ VERIFY: Add any stakeholder or team feedback you've received so far -->
+              <p>The shift to a user-driven model has been well-received internally, aligning the feature more closely with EyeOnWater's broader mission of giving homeowners agency over their water usage. The project has also sharpened the team's thinking about what conservation-focused design looks like in practice — and what it doesn't.</p>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    <svg class="section-divider" viewBox="0 0 800 30" preserveAspectRatio="none" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="15" x2="800" y2="15" stroke-width="1.1"/>
+      <g transform="translate(400,15)"><rect class="div-star-bg" x="-14" y="-14" width="28" height="28"/><path class="div-star" d="M0,-11 C0,-2 4.5,0 11,0 C4.5,0 0,2 0,11 C0,2 -4.5,0 -11,0 C-4.5,0 0,-2 0,-11Z"/></g>
+    </svg>
 
     <!-- ── 10. Reflections ── -->
     <div class="cs-section reveal">
@@ -299,11 +668,15 @@
         <p class="cs-section-label">10 — Reflections</p>
         <div class="cs-section-content">
           <h3>What I learned</h3>
-          <p class="cs-placeholder">
-            Reflect honestly. What went well — what are you most proud of on this project? What would you do differently if you could start over? What did this project teach you about your process, your users, or yourself as a designer?
+          <p>
+            Designing Water Budgets over the course of a year taught me something that's hard to learn on shorter projects: how to stay anchored to the user problem when everything else around it is shifting. Scope changed. The product model changed. Priorities shifted. Through all of it, the HMW questions and the early research work kept the team grounded in what we were actually trying to solve — giving users a meaningful way to participate in conservation, not just observe it.
           </p>
-          <p class="cs-placeholder">
-            Optionally: what are the next steps or open questions for this feature? Is there a v2 you'd want to explore?
+          <p>
+            Starting from scratch — moodboard, HMW questions, sketches, all the way through to high fidelity — reinforced how much early-stage process work pays off later. The moodboard in particular was valuable not just for visual direction, but for aligning the team on tone before a single screen was designed. It's a step I'll bring to every new feature from here on.
+          </p>
+          <p>
+            <!-- ⚠️ VERIFY: Add any personal reflections on what you'd do differently -->
+            Looking ahead, there's a lot of room for Water Budgets to grow. Future iterations could include proactive notifications when a user is approaching their target, historical tracking across billing cycles, and potentially exploring how email verification could serve as an additional touchpoint for conservation nudges. The foundation is in place — what comes next is making it smarter and more personal over time.
           </p>
         </div>
       </div>
@@ -311,12 +684,87 @@
 
   </main>
 
-  <!-- Footer Nav -->
-  <div style="padding: 4rem 0 5rem; text-align:center; border-top: 1px solid rgba(42,32,32,0.08); margin-top:2rem;">
+  <!-- Project nav -->
+  <div style="padding: 3rem 0; text-align:center; border-top: 1px solid rgba(42,32,32,0.08); margin-top:2rem;">
     <a href="index.html" class="btn btn-outline" style="margin-right:1rem;">← Back to all work</a>
     <a href="case-study-mfa.html" class="btn btn-ghost">Next project <span class="arrow">→</span></a>
   </div>
 
+  <!-- ═══════ FOOTER ═══════ -->
+  <footer id="contact" aria-label="Contact">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-cta reveal">
+          <p class="footer-cta-label">Let's connect</p>
+          <h3 class="footer-cta-heading">Come say hi!</h3>
+        </div>
+        <div class="footer-actions reveal reveal-delay-1">
+          <a href="https://www.linkedin.com/in/emilylam1099" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="Emily Lam on LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+              <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+            </svg>
+            LinkedIn
+          </a>
+          <a href="mailto:emlam1099@gmail.com" class="footer-link" aria-label="Email Emily Lam">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            Email
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-sparkles" aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#C4607E"/></svg>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#7B86C8"/></svg>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12,0 C12,1 12.4,10.5 19,12 C12.4,13.5 12,23 12,24 C12,23 11.6,13.5 5,12 C11.6,10.5 12,1 12,0Z" fill="#D4875A"/></svg>
+        </div>
+        <p class="footer-copy">© 2026 Emily Lam. Designed with care, fueled by sourdough.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="lightbox-close" aria-label="Close">&times;</button>
+    <div class="lightbox-backdrop"></div>
+    <div class="lightbox-content">
+      <img class="lightbox-img" src="" alt="" />
+      <p class="lightbox-caption"></p>
+    </div>
+  </div>
+
   <script src="js/main.js"></script>
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('.lightbox-img');
+    const lightboxCaption = lightbox.querySelector('.lightbox-caption');
+
+    function openLightbox(src, alt, caption) {
+      lightboxImg.src = src;
+      lightboxImg.alt = alt;
+      lightboxCaption.textContent = caption || '';
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.cs-img-wrap').forEach(wrap => {
+      const img = wrap.querySelector('img');
+      if (!img) return;
+      const caption = wrap.dataset.caption || img.alt;
+      wrap.addEventListener('click', () => openLightbox(img.src, img.alt, caption));
+      wrap.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') openLightbox(img.src, img.alt, caption); });
+    });
+
+    lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+    lightbox.querySelector('.lightbox-backdrop').addEventListener('click', closeLightbox);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+  </script>
 </body>
 </html>
