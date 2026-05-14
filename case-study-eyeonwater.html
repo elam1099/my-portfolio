@@ -297,7 +297,7 @@
         <div class="cs-meta">
           <div class="cs-meta-item">
             <p class="cs-meta-label">Timeline</p>
-            <p class="cs-meta-value">2025 - Present</p>
+            <p class="cs-meta-value">2023 - Present</p>
           </div>
           <div class="cs-meta-item">
             <p class="cs-meta-label">Tools</p>
@@ -362,14 +362,13 @@
         <div class="cs-section-content">
           <h3>Project Overview</h3>
           <p>
-            EyeOnWater is the customer-facing application from Badger Meter, designed to give homeowners real-time visibility into their water usage and proactive leak alerts. Users are customers of water utilities — people who want to understand their consumption but haven't always had the tools to act on it. The app puts that data directly in their hands, making the invisible visible.
+            EyeOnWater is the customer-facing application from Badger Meter, designed to give homeowners real-time visibility into their water usage and proactive leak alerts. Our users are customers of water utilities who want to understand their consumption but haven't always had the tools to do so. The app puts that data directly in their hands, providing them with insights into how they use their water.
           </p>
           <p>
-            Water Budgets is a new feature within EyeOnWater that gives users the ability to set a personal water target — one per meter — and track their progress toward it over time. Rather than simply observing how much water they use, users can now define how much they want to use, turning passive data into an active conservation goal.
+            Water Targets is a completely new feature within EyeOnWater that gives users the ability to set a personal water target and track their progress toward it over time. Rather than simply observing how much water they use, users can now define how much they want to use, turning passive data into an active conservation goal.
           </p>
           <p>
-            <!-- ⚠️ VERIFY: Adjust timeline if needed -->
-            This was a net-new feature with no prior equivalent in the product. It originated as a utility-imposed model — where utilities would set water targets for their customers — but evolved into a user-driven one, giving homeowners full agency over their own conservation efforts. The project has been ongoing for over a year, progressing through multiple rounds of iteration across low, mid, and high fidelity.
+            This project originated as a utility-imposed model, where utilities would set water targets for their customers, but evolved into a user-driven one, giving homeowners full agency over their own conservation efforts. The project has been ongoing since 2023, progressing through multiple rounds of iteration based on feedback from product, as well as business needs.
           </p>
         </div>
       </div>
@@ -387,17 +386,19 @@
         <div class="cs-section-content">
           <h3>What needed to change?</h3>
           <p>
-            EyeOnWater already gave users visibility into their water usage — but visibility alone doesn't change behavior. Users could see how much water they were using, but had no way to define how much they wanted to use. Without a target to measure against, the data was informative but not actionable. For utilities facing periods of mandated conservation, this gap was especially pronounced: there was no mechanism in the product to support or encourage reduced consumption at the user level.
+            Users could see how much water they were using, but had no way to define how much they wanted to use. Without a target to measure against, the data was informative but not actionable. For utilities facing periods of mandated conservation, this gap was especially pronounced as there was no mechanism in the product to support or encourage water conservation at the user level.
           </p>
           <div class="cs-two-col">
             <div class="cs-card">
               <h4>User Need</h4>
-              <p>Homeowners who cared about conservation had no way to set a personal goal within the app. They could monitor their usage passively, but couldn't establish a target to work toward, track their progress, or feel a sense of ownership over their efforts. The experience was observational, not participatory.</p>
+              <p>
+                Homeowners who cared about conservation had no way to set a personal goal within the app. They could monitor their usage, but couldn't establish a target to work toward, track their progress, or feel a sense of ownership over their efforts. The experience was observational, not participatory.
+              </p>
             </div>
             <div class="cs-card">
               <h4>Utility / Business Need</h4>
-              <!-- ⚠️ VERIFY: Add specifics if there were drought conditions, regulatory mandates, or utility-specific drivers -->
-              <p>Utilities needed a way to support water conservation efforts through the product — particularly during times when reduced consumption was a priority. The original direction was utility-imposed targets, but the model shifted to user-driven goals to better respect user autonomy and encourage voluntary participation in conservation.</p>
+              <p>
+                Utilities needed a way to support water conservation efforts through the product, particularly during times when reduced consumption was a priority (e.g: during droughts). The original direction was utility-imposed targets, but the model shifted to user-driven goals to encourage voluntary participation in conservation.              </p>
             </div>
           </div>
         </div>
@@ -416,14 +417,16 @@
         <div class="cs-section-content">
           <h3>Defining success</h3>
           <p>
-            Success for this feature meant more than shipping a form — it meant creating an experience that genuinely motivated users to engage with their water usage in a new way. I framed our goals around both the user experience and the broader conservation mission:
+            Success for this feature meant more than having the user fill out a form, it meant creating an experience that motivated users to engage with their water usage in a new way.
+          </p>
+          Here is how I defined the goals:
+          <p>
           </p>
           <ul style="margin: 1rem 0; padding-left: 1.25rem; line-height: 2;">
-            <li><strong>Enable self-serve goal setting</strong> — users can create, view, and manage a personal water target entirely on their own, without utility intervention.</li>
-            <li><strong>Make progress visible and meaningful</strong> — the detail view should communicate how a user is tracking against their target in a way that feels motivating, not clinical.</li>
-            <li><strong>Design for simplicity at the entry point</strong> — the creation form should be short, clear, and low-friction so users aren't discouraged before they even start.</li>
-            <!-- ⚠️ VERIFY: Add any specific product or utility goals if you had measurable targets -->
-            <li><strong>Build a scalable foundation</strong> — the one-target-per-meter constraint was a deliberate scoping decision for v1, establishing a clean model that could expand in future iterations.</li>
+            <li><strong>Enable self-serve goal setting:</strong> Users can create, view, and manage a personal water target entirely on their own, without utility intervention. </li>
+            <li><strong>Make progress visible and meaningful:</strong> The detail view should communicate how a user is tracking against their target in a way that feels motivating and informative.</li>
+            <li><strong>Design for simplicity:</strong> The creation form should be short, clear, and intuitive so users aren't discouraged before they even start.</li>
+            <li><strong>Build a scalable foundation:</strong>The one-target-per-meter constraint was a deliberate scoping decision for MVP, establishing a model that could expand in future iterations.</li>
           </ul>
         </div>
       </div>
@@ -441,7 +444,7 @@
         <div class="cs-section-content">
           <h3>Finding direction</h3>
           <p>
-            Because Water Budgets was a net-new feature with no prior equivalent in EyeOnWater, I started from scratch — with a moodboard. Rather than jumping straight into flows, I wanted to first establish the visual and emotional tone of the experience. Water conservation is a topic that can easily feel guilt-inducing or overly technical; the goal was to find a direction that felt encouraging, clear, and personal.
+            Because Water Targets was a completely new feature, I started from scratch with a moodboard. Rather than jumping straight into flows, I wanted to first establish the visual and emotional tone of the experience. Water conservation is a topic that can easily feel guilt-inducing or overly technical, so the goal was to find a direction that felt encouraging, clear, and personal.
           </p>
           <div class="cs-img-placeholder" role="img" aria-label="Moodboard placeholder">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
