@@ -34,7 +34,6 @@ body {
 
 /* Suppress all native cursors so the custom cursor always shows */
 *, *::before, *::after { cursor: none !important; }
-}
 
 /* ── Miffy ── */
 .miffy-wrap {
@@ -1309,6 +1308,10 @@ main { background: var(--cream); position: relative; }
   color: var(--text-dark);
   font-weight: 600;
   margin-bottom: 0.2rem;
+}
+.cs-list-inline li strong {
+  display: inline;
+  margin-bottom: 0;
 }
 .cs-list li::before {
   content: '';
