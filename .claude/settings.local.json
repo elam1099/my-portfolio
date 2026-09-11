@@ -35,7 +35,13 @@
       "Bash(sed -i '' 's|styles.css?v=2|styles.css?v=12|g' /Users/emilylam/Desktop/my-portfolio/case-study-mfa.html)",
       "Bash(python3)",
       "Bash(lsof -ti:3000)",
-      "Bash(xargs kill *)"
+      "Bash(xargs kill *)",
+      "Bash(git checkout *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "mcp__visualize__read_me",
+      "mcp__visualize__show_widget"
     ]
   }
 }
