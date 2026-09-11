@@ -4,8 +4,9 @@
     {
       "name": "portfolio",
       "runtimeExecutable": "/Users/emilylam/.nvm/versions/node/v24.14.1/bin/npx",
-      "runtimeArgs": ["serve", "-l", "3000", "/Users/emilylam/Desktop/my-portfolio"],
-      "port": 3000
+      "runtimeArgs": ["serve", "/Users/emilylam/Desktop/my-portfolio"],
+      "port": 3000,
+      "autoPort": true
     }
   ]
 }

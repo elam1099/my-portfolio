@@ -1027,7 +1027,8 @@ body.dark-page .nav-logo-img {
 }
 .carousel-card img {
   height: 350px;
-  width: auto;
+  width: 175px;
+  object-fit: contain;
   display: block;
 }
 @keyframes carousel-scroll {
